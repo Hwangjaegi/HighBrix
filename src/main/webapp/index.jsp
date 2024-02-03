@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="/highbrix/views/display/dpMain.do";
+	location.href="dpMain.do";
 </script>
 </body>
 </html>
