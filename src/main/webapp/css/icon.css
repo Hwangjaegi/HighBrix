@@ -1,0 +1,88 @@
+@charset "UTF-8";
+.icon{
+	position: relative;
+	top: 47px;
+	left: 110px;
+	width:35px;
+}
+
+input[id="menuicon"]{
+	display: none;
+}
+input[id="menuicon"]+label{
+	display:block;
+	width:35px;
+	height:20px;
+	position:relative;
+	cursor:pointer;
+	z-index: 2;
+}
+input[id="menuicon"]+label span{
+	display:block;
+	position:absolute;
+	width:100%;
+	height:5px;
+	border-radius:30px;
+	background:#000;
+	transition:all .35s;
+}
+input[id="menuicon"]+label span:nth-child(1) {
+	top:0px;
+}
+input[id="menuicon"]+label span:nth-child(2) {
+	top:50%;
+	transform:translateY(-50%);
+}
+input[id="menuicon"]+label span:nth-child(3) {
+	bottom:0px;
+}
+input[id="menuicon"]:checked+ label span:nth-child(1){
+	top:50%;
+	transform:translateY(-50%) rotate(45deg);
+}
+input[id="menuicon"]:checked+ label span:nth-child(2){
+	opacity:0;
+}
+input[id="menuicon"]:checked+ label span:nth-child(3){
+	bottom:50%;
+	transform:translateY(50%) rotate(-45deg);
+}
+div[class="sidebar"]{
+	/* opacity : 투명도설정 */
+	opacity:0; 
+	width:150px;
+	height:300px;
+	margin-top:180px;
+	margin-left:10px;
+	background:white;
+	position:fixed;
+	top:0;
+	left:100px;
+	z-index:1;
+	transition:all .35s;
+}
+
+input[id="menuicon"]:checked + label + div{
+	opacity:100;
+	/* 그림자설정 */
+	box-shadow: 2px 2px 2px 2px gray;
+}
+
+
+#arow{
+	position: relative;
+	top:330px;
+	left:1800px;
+}
+#arow:hover{
+	background-color:yellow;
+}
+
+#arow2{
+	position: relative;
+	top:330px;
+	left:0px;
+}
+#arow2:hover{
+	background-color:yellow;
+}
