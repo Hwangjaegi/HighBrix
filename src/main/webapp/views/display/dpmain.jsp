@@ -5,15 +5,16 @@
 <!DOCTYPE html><html><head><meta charset="EUC-KR">
 <title>Insert title here</title>
 <style type="text/css">
-@import url("../../css/display.css");
-@import url("../../css/icon.css");
+@import url("/highbrix/css/display.css");
+@import url("/highbrix/css/icon.css");
 </style>
 </head>
 <body>
 <div class="wrap">
 	<header>
-	<div class="top">
-		<img alt="highbrix" src="../../images/highbrix.jpg">
+	<div class="top">			<!-- 상대경로 -> 절대경로로 문제1 해결 -->
+		<!-- <img alt="highbrix" src="../../images/highbrix.jpg"> -->
+		<img alt="highbrix" src="/highbrix/images/highbrix.jpg">
 			<div id="login">
 				<a href="login.do" >로그인</a>/<a href="join.do">회원가입</a>
 			</div> <!-- login [div] -->
@@ -56,10 +57,10 @@
 	</div>
 	</header>
 	<!-- 메인 구역 구현 -->
-	<a href=""><img id="arow" alt="다음" src="../../images/arow.png"> </a>
-	<a href=""><img id="arow2" alt="다음" src="../../images/arow2.png"> </a>
+	<a href=""><img id="arow" alt="다음" src="/highbrix/images/arow.png"> </a>
+	<a href=""><img id="arow2" alt="다음" src="/highbrix/images/arow2.png"> </a>
 	<div class="main">
-		<a href="subscribe.do"><img alt="네비게이션바" src="../../images/test.jpg"></a>
+		<a href="subscribe.do"><img alt="네비게이션바" src="/highbrix/images/test.jpg"></a>
 	</div>
 </div>
 </body>
