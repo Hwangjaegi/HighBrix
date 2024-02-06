@@ -1,10 +1,5 @@
 @charset "UTF-8";
-.icon{
-	position: relative;
-	top: 47px;
-	left: 110px;
-	width:35px;
-}
+
 
 input[id="menuicon"]{
 	display: none;

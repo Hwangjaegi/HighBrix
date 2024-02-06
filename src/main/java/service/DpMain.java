@@ -8,7 +8,7 @@ public class DpMain implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "dpmain";
+		return "dpMain";
 	}
 
 }
