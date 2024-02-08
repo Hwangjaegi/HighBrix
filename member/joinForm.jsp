@@ -4,15 +4,6 @@
 <title>Insert title here</title>
 <style type="text/css">@import url("member.css");</style>
 <script type="text/javascript">
-	function chk(){
-		if(join.password.value != join.password2.value){
-			alert("비밀번호와 비밀번호 확인이 다릅니다.");
-			join.password.focus();
-			join.password1.value="";
-			join.password2.value="";
-			return false;
-		}
-	}
 	function dupchk(){
 		if(!join.id.value){
 			alert("아이디를 입력해주세요.");
@@ -22,11 +13,20 @@
 		window.open("idchk.jsp?id="+join.id.value,"",
 		"width=400 height=400");
 	}
+	function chk(){
+		if(join.password.value != join.password2.value){
+			alert("비밀번호와 비밀번호 확인이 다릅니다.");
+			join.password.focus();
+			join.password.value="";
+			join.password2.value="";
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
 <div class="join-form">
-<form action="join.jsp" name="join" onsubmit="chk()">
+<form action="join.jsp" name="join" onsubmit="return chk()">
 <table>
 <colgroup><col width="25%"><col width="75%"></colgroup>
 <tbody>
