@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.CommandProcess; // commandProcess.java생성
 // urlPatterns="*.do", 끝이 .do인 url을 처리하겠다
-@WebServlet(urlPatterns="*.do",		//command.properties에 저장된값을 읽어서 config에 저장한다.
-	initParams={@WebInitParam(name="config",value="/WEB-INF/command.properties")})
-public class Controller extends HttpServlet { 
+@WebServlet(urlPatterns="*.cu",		//command.properties에 저장된값을 읽어서 config에 저장한다.
+	initParams={@WebInitParam(name="config",value="/WEB-INF/command_cu.properties")})
+public class ControllerCu extends HttpServlet { 
 	private static final long serialVersionUID = 1L;
 	//properties는 Map을 상속받은 아이라서 commanMap에 저장할거야
 	private Map<String, Object> commandMap = new HashMap<>();
@@ -89,7 +89,7 @@ public class Controller extends HttpServlet {
 	    } catch(Throwable e) { throw new ServletException(e); } 
 //	 view는 pgm article에 보여줄 프로그램
 	    RequestDispatcher dispatcher =
-	   request.getRequestDispatcher("views/display/"+view+".jsp"); // Gugu.java , Message.java의 return값에.jsp를지우고 여기다써도됨
+	   request.getRequestDispatcher("/views/border/"+view+".jsp"); // Gugu.java , Message.java의 return값에.jsp를지우고 여기다써도됨
 	   // request.getRequestDispatcher(view+".jsp"); // Gugu.java , Message.java의 return값에.jsp를지우고 여기다써도됨
 	   dispatcher.forward(request, response);
 	}

@@ -1,14 +1,16 @@
-package service;
+package service.border;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DpMain implements CommandProcess {
+import service.CommandProcess;
+
+public class Customer implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "dpMain";
+		return "customer";
 	}
 
 }

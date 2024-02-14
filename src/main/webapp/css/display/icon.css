@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+
+#menuicon{
+	display: none;
+	position: fixed;
+}
+#menuicon+label{
+	display:block;
+	width:40px;
+	height:25px;
+	position:relative;
+	cursor:pointer;
+	z-index: 2;
+}
+#menuicon+label span{
+	display:block;
+	position:absolute;
+	width:100%;
+	height:5px;
+	border-radius:30px;
+	background:#000;
+	transition:all .35s;
+}
+#menuicon+label span:nth-child(1) {
+	top:0px;
+}
+#menuicon+label span:nth-child(2) {
+	top:50%;
+	transform:translateY(-50%);
+}
+#menuicon+label span:nth-child(3) {
+	bottom:0px;
+}
+#menuicon:checked+ label span:nth-child(1){
+	top:50%;
+	transform:translateY(-50%) rotate(45deg);
+}
+#menuicon:checked+ label span:nth-child(2){
+	opacity:0;
+}
+#menuicon:checked+ label span:nth-child(3){
+	bottom:50%;
+	transform:translateY(50%) rotate(-45deg);
+}
+.sidebar{
+	/* opacity : 투명도설정 */
+	opacity:0; 
+	width:150px;
+	height:300px;
+	background:white;
+	position:fixed;
+	top:500px;
+	left:1100px;
+	z-index:1;
+	transition:all .35s;
+}
+
+.sidebar ol{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	
+}
+.sidebar ol>li{
+	padding-top:10px;
+	margin-right: 0px;
+	font-family: 돋움;
+	font-weight: bold;
+}
+
+.sidebar ol>li>a{
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar ol>li>a:hover{
+	color: green;
+	cursor: pointer;
+}
+
+input[id="menuicon"]:checked + label + div{
+	opacity:100;
+	/* 그림자설정 */
+	box-shadow: 2px 2px 2px 2px gray;
+}
+
+/* 
+#arow{
+	position: relative;
+	top:330px;
+	left:1800px;
+}
+#arow:hover{
+	background-color:yellow;
+}
+
+#arow2{
+	position: relative;
+	top:330px;
+	left:0px;
+}
+#arow2:hover{
+	background-color:yellow;
+} */

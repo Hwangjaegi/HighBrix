@@ -1,18 +1,19 @@
 @charset "UTF-8";
 
 
-input[id="menuicon"]{
+#menuicon{
 	display: none;
+	position: fixed;
 }
-input[id="menuicon"]+label{
+#menuicon+label{
 	display:block;
-	width:35px;
-	height:20px;
+	width:40px;
+	height:25px;
 	position:relative;
 	cursor:pointer;
 	z-index: 2;
 }
-input[id="menuicon"]+label span{
+#menuicon+label span{
 	display:block;
 	position:absolute;
 	width:100%;
@@ -21,40 +22,61 @@ input[id="menuicon"]+label span{
 	background:#000;
 	transition:all .35s;
 }
-input[id="menuicon"]+label span:nth-child(1) {
+#menuicon+label span:nth-child(1) {
 	top:0px;
 }
-input[id="menuicon"]+label span:nth-child(2) {
+#menuicon+label span:nth-child(2) {
 	top:50%;
 	transform:translateY(-50%);
 }
-input[id="menuicon"]+label span:nth-child(3) {
+#menuicon+label span:nth-child(3) {
 	bottom:0px;
 }
-input[id="menuicon"]:checked+ label span:nth-child(1){
+#menuicon:checked+ label span:nth-child(1){
 	top:50%;
 	transform:translateY(-50%) rotate(45deg);
 }
-input[id="menuicon"]:checked+ label span:nth-child(2){
+#menuicon:checked+ label span:nth-child(2){
 	opacity:0;
 }
-input[id="menuicon"]:checked+ label span:nth-child(3){
+#menuicon:checked+ label span:nth-child(3){
 	bottom:50%;
 	transform:translateY(50%) rotate(-45deg);
 }
-div[class="sidebar"]{
+.sidebar{
 	/* opacity : 투명도설정 */
 	opacity:0; 
 	width:150px;
 	height:300px;
-	margin-top:180px;
-	margin-left:10px;
 	background:white;
 	position:fixed;
-	top:0;
-	left:100px;
+	top:500px;
+	left:1100px;
 	z-index:1;
 	transition:all .35s;
+}
+
+.sidebar ol{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	
+}
+.sidebar ol>li{
+	padding-top:10px;
+	margin-right: 0px;
+	font-family: 돋움;
+	font-weight: bold;
+}
+
+.sidebar ol>li>a{
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar ol>li>a:hover{
+	color: green;
+	cursor: pointer;
 }
 
 input[id="menuicon"]:checked + label + div{
@@ -63,7 +85,7 @@ input[id="menuicon"]:checked + label + div{
 	box-shadow: 2px 2px 2px 2px gray;
 }
 
-
+/* 
 #arow{
 	position: relative;
 	top:330px;
@@ -80,4 +102,4 @@ input[id="menuicon"]:checked + label + div{
 }
 #arow2:hover{
 	background-color:yellow;
-}
+} */
