@@ -202,7 +202,7 @@ input[id="menuicon"]:checked + label + div{
 	background: black;
 	
 }
-.announce{
+.cu_menu>ul li{
 	background:blue;
 	list-style: none;
 	cursor: pointer;
@@ -213,10 +213,10 @@ input[id="menuicon"]:checked + label + div{
 	margin-top: 20px;
 	height: 40px;
 }
-.announce>a{
+.notice>a{
 	margin-left: 10px;
 }
-.cu_board{
+.cu_border{
 	position:relative;
 	margin:0 auto;
 	width:1500px;
@@ -224,9 +224,42 @@ input[id="menuicon"]:checked + label + div{
 	background:green;
 	margin-top: 100px;
 }
-.cu_board>span{
+.cu_border>span{
 	float: right;
 	font-size: 25px;
 	font-family: sans-serif;
 	font-weight: bold;
+	margin-top: 20px;
+	margin-right:20px;
+}
+.cu_border h1{
+	position: relative;
+	left:100px;
+	top:100px;
+}
+.cu_tableFull{
+	position: relative;
+	top: 100px;
+}
+.cu_table{
+	width:1300px;
+	border:1px solid black;
+	margin: 0 auto;
+}
+.cu_table>table{
+	width:1300px;
+}
+.t_head th{
+	font-size: 20px;
+	font-family: sans-serif;
+	font-weight: bold;
+	height:50px;
+	padding:20px;
+}
+.t_main td{
+	font-size: 15px;
+	font-family: sans-serif;
+	height:50px;
+	text-align: center;
+	 
 }
