@@ -1,7 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberns">
-	
-	
+	<select id="select" parameterType="string" resultType="member">
+		select * from member4 where id=#{id}
+	</select>
+	<insert id="insert" parameterType="member">
+		insert into member4 values(
+			#{id},#{password},#{name},#{address},
+			#{tel},#{email},sysdate,'n')
+	</insert>
+	<update id="update" parameterType="member">
+		update member4 set password=#{password},
+			name=#{name},address=#{address},
+			tel=#{tel},email=#{email} where id=#{id}
+	</update>
+	<update id="delete" parameterType="member">
+		update member4 set del='y' where id=#{id}
+	</update>
+	<select id="getTotal" resultType="integer">
+		select count(*) from member4
+	</select>
+	<select id="findId" parameterType="hashmap" resultType="member">
+	 	select * from member4 where name=#{name} and tel=#{tel}
+	</select>
+	<select id="findPw" parameterType="string" resultType="member">
+	 	select * from member4 where id=#{id} and name=#{name}
+	</select>
 </mapper>

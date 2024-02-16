@@ -10,7 +10,7 @@
 		url="jdbc:oracle:thin:@127.0.0.1:1521:xe" 
 		maxActive="10" 
 		maxIdle="2"/> 
-	<!-- <Resource 
+	<Resource 
 		name="jdbc/MySql" 
 		auth="Container" 
 		type="javax.sql.DataSource" 
@@ -20,5 +20,5 @@
 		factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" 
 		url="jdbc:mysql://127.0.0.1:3306/test?useSSL=true&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"
 		maxActive="10" 
-		maxIdle="2"/>  설정후 항상 서버 껐다키기-->
+		maxIdle="2"/>
 </Context>
