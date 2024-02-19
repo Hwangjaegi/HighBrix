@@ -8,7 +8,7 @@
 	<insert id="insert" parameterType="member">
 		insert into member4 values(
 			#{id},#{password},#{name},#{address},
-			#{tel},#{email},sysdate,'n')
+			#{tel},#{email},sysdate,'n','n')
 	</insert>
 	<update id="update" parameterType="member">
 		update member4 set password=#{password},
