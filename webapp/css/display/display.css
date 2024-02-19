@@ -1,0 +1,224 @@
+@charset "UTF-8";
+body{
+	margin:	0px;
+	padding: 0px;
+	box-sizing:border-box;
+}
+#pritest{
+	text-decoration: line-through;
+	font-size: 18px;
+	color:#8C8C8C;
+}
+.wrap{
+	/* 전체웹에 최대 가로길이를 주고 margin: 0 auto하게되면 중앙배치됨 */
+	max-width:1920px;
+	height: 5000px;
+	margin:0 auto;
+}
+.top{
+	margin-top:20px;
+	width: 100%;
+	height: 80px;
+	float: left;
+}
+.logo-login {
+    justify-content: space-between;
+    align-items: center;
+    float:left;
+}
+.logo{
+	position:relative;
+	left:800px;
+	width:350px;
+	height:300px;
+	float:left; 
+}
+.logo:hover{
+	cursor:pointer;
+}
+.login{
+	width:200px;
+	position: relative;
+	top: 0px;
+	float:right;
+	left:1375px;
+	
+}
+.login a{
+	text-decoration: none;
+	color : black; 
+	font-size: 25px;
+	font: bold;
+	
+}
+.logo-login>.login a:hover{
+	cursor: pointer;
+	color: red;
+}
+.search{
+	position: relative;
+	top:0px;
+	left:1690px; 
+	width:300px;
+	height:0px;
+	background-color: red;
+}
+.search input{
+	height: 40px;
+}
+.menu{
+	margin:0 auto;
+	margin-top:400px;
+	display: flex;
+    justify-content: center;	/* 중앙정렬 */
+    width: 100%; /* 이 값을 조정하여 메뉴 항목 간의 거리를 조절할 수 있습니다. */
+    position: sticky;
+}
+.icon{
+	float: left;
+	margin-top: 35px;
+}
+
+.menu ul{
+	display:table;
+	list-style: none;
+}
+.menu ul li{
+	margin-left:20px;
+	padding:10px;
+	float:left;
+	font-size: 30px;
+	font-family: sans-serif;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.menu ul li a:hover{
+	color: green;
+	cursor: pointer;
+}
+
+/* header css close */
+.nav_bar{
+	margin-top: 50px;
+}
+
+.nav_bar>ul>li{
+	margin:-40px;
+	list-style: none;
+}
+
+main{
+	width:1920px;
+	height:3000px;
+	margin: 0 auto;
+}
+
+.mainText1{
+	font-size: 40px;
+	font-weight: bold;
+	margin-top:200px;
+	margin-left: 110px;
+}
+
+
+.pdList{
+	display:flex;
+	justify-content:center;
+	list-style: none;
+}
+.pdList:nth-child(5){	/* 왜 5인지 모르겠으나 5로하니까 설정되었음 => 02-14 수업을통해 해결*/
+	background-color: #a6d8d9;
+}
+
+.pdListCon{
+	float:left;
+	list-style: none;
+	padding:30px;
+	
+}
+.pdListText{
+	position:relative;
+	left:-100px;
+	margin-left: 80px;
+}
+@keyframes slide{
+	from{
+	left:-500px;
+	opacity:0;
+	
+	}
+	to{
+	left: -100px;
+	opacity:1;
+	}
+}
+
+@keyframes disappear{
+	from{
+	left: -100px;
+	opacity:1;
+	
+	}
+	to{
+	left:-500px;
+	opacity:0;
+	}
+}
+#pdtext{
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 100px;
+}
+#text1{
+	background-color:red;
+	margin:0px;
+	padding:0px;
+	font-family: sans-serif;
+	font-size:50px;
+	margin-right: 40px;
+}
+#text2{
+	font-size: 40px;
+	font-family: sans-serif;
+	margin-top: 1px;
+}
+.imgWrap{
+	width:390px;
+	height:500px;
+}
+.txtWrap{
+	width:390px;
+	float: left;
+}
+.txtWrap a{
+	text-decoration:none;
+	color: black;
+	font-weight: bold;
+}
+.pdPrice{
+	float:left;
+}
+.pdPrice a{
+	font-size: 22px;
+}
+.cart{
+	float: right;
+}
+.cart a img{
+	width: 50px;
+}
+
+.footer{
+	margin-top:600px;
+}
+.footerText{
+	text-align: center;
+	font-family: sans-serif;
+	background-color: #F6F6F6;
+}
+
+/* 적용이안될 때 방문기록 삭제하면 적용될 때 있다 -> 크롬의 경우 자주 발생한다. */
