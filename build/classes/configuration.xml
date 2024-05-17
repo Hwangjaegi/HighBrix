@@ -5,6 +5,13 @@
 	<properties resource="db.properties" />
 	<typeAliases>
 		<typeAlias alias="member" type="model.Member" />
+		<typeAlias alias="cm_product" type="model.Cm_product" />
+		<typeAlias alias="love" type="model.Love" />
+		<typeAlias alias="account" type="model.Account" />
+		<typeAlias alias="cart" type="model.Cart" />
+		<typeAlias alias="buyList" type="model.BuyList" />
+		<typeAlias alias="delivery_buy" type="model.Delivery_buy" />
+		<typeAlias alias="review" type="model.Review"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -19,5 +26,12 @@
 	</environments>
 	<mappers>
 		<mapper resource="member.xml" />
+		<mapper resource="cm_product.xml" />
+		<mapper resource="love.xml"/>
+		<mapper resource="account.xml" />
+		<mapper resource="cart.xml" />
+		<mapper resource="buyList.xml" />
+		<mapper resource="delivery_buy.xml" />	
+		<mapper resource="review.xml"/>
 	</mappers>
 </configuration>

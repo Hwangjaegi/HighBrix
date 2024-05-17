@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cartns">
+
+	<insert id="insert_cm" parameterType="cart">
+		merge into cart c <!-- 듀얼 테이블 세팅 -->
+			using (select #{cm_no} as cm_no, #{id} as id from dual) d
+				on (c.cm_no = d.cm_no and c.id = d.id) <!--  조건 -->
+	    when matched then <!-- 같은 상품이 있으면 -->
+	        update set c_count = c.c_count + #{c_count}
+	    when not matched then <!-- 같은 상품이 없으면 -->
+	        insert (c_no, cm_no, id, c_count)
+	        	values (c_no_seq.nextval, d.cm_no, d.id, #{c_count})
+	</insert>
+	
+	<select id="cart_list" parameterType="string" resultType="cart">
+		select a.c_no, a.c_count, a.id, b.cm_no, b.cm_name, b.cm_price, b.cm_discount, b.cm_image
+					from cart a, cm_product b
+					where a.cm_no = b.cm_no and a.id= #{id}
+	</select> 
+
+	<select id="cartList" resultType="cart" parameterType="map">
+		select * from cm_product where cm_no in (
+			select cm_no from cart where id = #{id})
+	</select>
+	<!-- 장바구니 삭제 -->
+	<delete id="delete">
+		delete from cart where c_no = #{c_no} and id = #{id} 
+	</delete>
+</mapper>

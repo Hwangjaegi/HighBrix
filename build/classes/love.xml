@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lovens">
+	<insert id="insert_cm" parameterType="map">
+		insert into love_cm values(lcm_no_seq.nextval, #{id}, #{cm_no}, #{cm_name}, #{cm_image}, #{cm_price})
+	</insert>
+
+	<select id="select_cm" parameterType="string" resultType="love">
+		select * from love_cm where id = #{id}
+		
+	</select>
+
+	<update id="update_cm" parameterType="map">
+		update love_cm set where cm_no = #{cm_no} and id = #{id}
+	</update>
+	
+	<delete  id="delete_cm" parameterType="love">
+		delete from love_cm where cm_no = #{cm_no} and id = #{id}
+	</delete>
+	
+	<delete id="deleteAll_cm" parameterType="love">
+		delete from love_cm where id = #{id}
+	</delete>
+	
+	<select resultType="love" id="lovelist"
+		parameterType="string">
+		select * from love_cm where id=#{id}
+	</select>
+</mapper>

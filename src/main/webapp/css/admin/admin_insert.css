@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 300;
+	font-style: normal;
+}
+
+/* 기본 스타일 설정 */
+body {
+	background-color: #FDF9E7;
+	font-family: 'SUITE-Regular', sans-serif;
+}
+
+body>div {
+	font-family: 'SUITE-Regular', sans-serif;
+}
+
+.sub-middle-layout {
+	margin-top: 70px;
+	margin-bottom: 100px;
+}
+
+/* insert 설정 */
+.container {
+	display: flex;
+	justify-content: center;
+	padding: 30px; /* 안쪽 여백 설정 */
+	border-radius: 5px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container th, .container td {
+	padding: 10px 5px; /* 셀 내부 여백 설정 */
+}
+
+.err {
+	color: #FF6244;
+	font-weight: bold;
+}
+
+input[type="text"], input[type="number"] , textarea {
+	border: none;
+	background-color: #FDF9E7;
+	outline: none; /* 포커스시 외곽선 제거 */
+}
+
+
+/* 공통 */
+table {
+	border-collapse: collapse;
+	width: 500px;
+	margin: 1rem auto;
+}
+td {
+	padding: 8px;
+	text-align: left;
+	font-size: 20px;
+	border-bottom: 1px solid #ddd;
+}
+th {
+	height: 20px;
+	width: 20%;
+	padding: 8px;
+	text-align: center;
+	background-color: #FF6244;
+	border-bottom: 1px solid #ddd;
+	color: white;
+	font-weight: normal;
+}
+td input[type="text"], td input[type="number"] {
+	width: 80%;
+	font-family: 'SUITE-Regular', sans-serif;
+}
+caption {
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.btn {
+	float: left;
+	border: 1px solid #FF6244;
+	color: white;
+	font-family: 'SUITE-Regular', sans-serif;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px; /* 글꼴 크기 */
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 2px; /* 버튼 모서리 둥글게 */
+}
+.bt_list{
+	float: left;
+	border: 1px solid #FF6244;
+	color: #FF6244;
+	font-family: 'SUITE-Regular', sans-serif;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px; /* 글꼴 크기 */
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 2px; /* 버튼 모서리 둥글게 */
+}
+.bt_submit {
+	border: 1px solid #FF6244;
+	color: white; /* 글자색 */
+	font-family: 'SUITE-Regular', sans-serif;
+	text-align: center; /* 텍스트 가운데 정렬 */
+	display: inline-block;
+	font-size: 16px; /* 글꼴 크기 */
+	margin: 30px 60px;
+	padding: 20px;
+	cursor: pointer;
+	border-radius: 2px; /* 버튼 모서리 둥글게 */
+}
+.container
+.err {
+	color: #FF6244;
+	font-weight: bold;
+	font-size: 12px;
+}
+.column_box {
+	font-size: 0;
+	text-align: center;
+	margin-top: 30px;
+}
+.column_box .column {
+	display: inline-block;
+	width: calc(50% - 10px);
+	margin-right: 10px;
+}
+.column_box .column:last-child {
+	margin-right: 0;
+	margin-left: 10px;
+}
+.column2:first-child {
+	position: relative;
+	width: calc(80% - 10px);
+}
+.column2:last-child {
+	width: calc(20% - 10px);
+	height: 48px;
+	vertical-align: top;
+}
+.file_label {
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #FF6244; /* 테두리 스타일 설정 */
+    border-radius: 2px; /* 테두리의 둥근 정도 설정 */
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #FF6244;
+    background-color: white;
+}
+.pd {
+	margin-bottom: 0px;
+}
+input[type="file"] { /* input 사라지게 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+
+
+
+
+/* 재기추가 */
+.cm_content{
+	height: 500px;
+}

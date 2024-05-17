@@ -1,0 +1,235 @@
+@charset "UTF-8";
+body{
+	margin:	0px;
+	padding: 0px;
+	box-sizing:border-box;
+}
+#pritest{
+	text-decoration: line-through;
+	font-size: 18px;
+	color:#8C8C8C;
+}
+.wrap{
+	/* 전체웹에 최대 가로길이를 주고 margin: 0 auto하게되면 중앙배치됨 */
+	/* max-width:1920px; */
+	width :1920px;
+	height:500px;
+	justify-content : center;
+	margin:0 auto;
+	background: gray;
+}
+.top{
+	margin-top:20px;
+	width: 100%;
+	height:100%;
+	float: left;
+}
+.logo-login {
+    justify-content: space-between;
+    align-items: center;
+    float:left;
+}
+.logo{
+	/* position:relative; */
+	width:350px;
+	height:300px;
+/* 	text-align: center; 로고를 수평 중앙에 정렬하기 위해 헤더를 가운데 정렬합니다.
+    display: inline-block; 로고 컨테이너를 인라인 블록으로 설정하여 수평으로 정렬합니다. */
+    position: absolute; /* 로고를 절대 위치로 설정합니다. */
+    top : 15%;
+    left: 50%; /* 왼쪽 위치를 화면의 중앙으로 이동시킵니다. */
+    transform: translate(-50%, -50%); /* 로고를 화면의 정확한 중앙으로 이동시킵니다. */
+}
+
+.logo:hover{
+	cursor:pointer;
+}
+.login{
+/* 	width:300px; */
+	position: absolute;
+	top: 5%;
+	float : right;
+	right : 0;
+	
+}
+.login a{
+	text-decoration: none;
+	color : white; 
+	font-size: 1em;
+	font: bold;
+	border: 1px solid #7cd12e;
+	margin:10px;
+	background: #7cd12e;
+	
+}
+.logo-login>.login a:hover{
+	cursor: pointer;
+	color: red;
+}
+.search {
+	position:absolute;
+	right : 30px;
+	bottom : 60%;
+	height:0px;
+	background-color: red;
+}
+
+.search input{
+	height: 40px;
+}
+.menu{
+	/* margin:360px 0 auto; */
+   justify-content: center;	/* 중앙정렬 */
+    width: 100%; /* 이 값을 조정하여 메뉴 항목 간의 거리를 조절할 수 있습니다. */
+}
+/* 카테고리 버튼구현 */
+.icon{
+	float: left;
+	position: absolute;
+	top : 41%;
+	left: 29%;
+	margin : 15px 0 auto;
+}
+
+.menu_list ul{
+	/* width : 100%; */
+	display:table;
+	list-style: none;
+	position: absolute;
+	top : 40%;
+	left : 35%;
+}
+.menu_list ul li{
+	margin-left:20px;
+	padding:10px;
+	float:left;
+	font-size: 2em;
+	font-family: sans-serif;
+}
+
+.menu_list ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.menu_list ul li a:hover{
+	color: green;
+	cursor: pointer;
+}
+
+#menuicon{
+	display: none;
+	position: fixed;
+}
+#menuicon+label{
+	display:block;
+	width:40px;
+	height:25px;
+	position:relative;
+	cursor:pointer;
+	z-index: 2;
+}
+#menuicon+label span{
+	display:block;
+	position:relative;
+	width:100%;
+	height:5px;
+	border-radius:30px;
+	background:#000;
+	transition:all .35s;
+}
+#menuicon+label span:nth-child(1) {
+	top:0px;
+}
+#menuicon+label span:nth-child(2) {
+	top:50%;
+	transform:translateY(-50%);
+}
+#menuicon+label span:nth-child(3) {
+	bottom:0px;
+}
+#menuicon:checked+ label span:nth-child(1){
+	top:50%;
+	transform:translateY(-50%) rotate(45deg);
+}
+#menuicon:checked+ label span:nth-child(2){
+	opacity:0;
+}
+#menuicon:checked+ label span:nth-child(3){
+	bottom:50%;
+	transform:translateY(50%) rotate(-45deg);
+}
+.sidebar{
+	/* opacity : 투명도설정 */
+	opacity:0; 
+	width:150px;
+	height:300px;
+	background:white;
+	position:relative;
+	top:250px;
+	z-index:1;
+	transition:all .35s;
+}
+
+.sidebar ol{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	
+}
+.sidebar ol>li{
+	padding-top:10px;
+	margin-right: 0px;
+	font-family: 돋움;
+	font-weight: bold;
+}
+
+.sidebar ol>li>a{
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar ol>li>a:hover{
+	color: green;
+	cursor: pointer;
+}
+input[id="menuicon"]:checked + label + div{
+	opacity:100;
+	/* 그림자설정 */
+	box-shadow: 2px 2px 2px 2px gray;
+} /* 카테고리 및 헤더 css 종료 */
+
+.menu ul{
+	display:table;
+	list-style: none;
+}
+.menu ul li{
+	margin-left:20px;
+	padding:10px;
+	float:left;
+	font-size: 2em;
+	font-family: sans-serif;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.menu ul li a:hover{
+	color: green;
+	cursor: pointer;
+}
+
+/* header css close */
+
+.footer{
+	margin-top: 200px;
+}
+.footerText{
+	text-align: center;
+	font-family: sans-serif;
+	background-color: #F6F6F6;
+}
+
+/* 적용이안될 때 방문기록 삭제하면 적용될 때 있다 -> 크롬의 경우 자주 발생한다. */

@@ -1,337 +1,205 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- JSTL¼±¾ğ -->
-<!DOCTYPE html><html><head><meta charset="EUC-KR">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- JSTLì„ ì–¸ -->
+<!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-@import url("/highbrix/css/display/display.css");	/* µğ½ºÇÃ·¹ÀÌ css ¿¬µ¿ */
-@import url("/highbrix/css/display/icon.css");		/* ¾ÆÀÌÄÜ css ¿¬µ¿ */
+	@import url("/highbrix/css/display/display.css");	/* ë””ìŠ¤í”Œë ˆì´ css ì—°ë™ */
 </style>
 <script type="text/javascript" src="/highbrix/js/jquery.js"></script>
 <script type="text/javascript">
-	$(function(){	/* ÇÒÀÎ»óÇ° ÅØ½ºÆ® ¾Ö´Ï¸ŞÀÌ¼Ç Ãß°¡ */
+	let cartBtn = false;
+	
+	$(function(){	/* í• ì¸ìƒí’ˆ í…ìŠ¤íŠ¸ ì• ë‹ˆë©”ì´ì…˜ ì¶”ê°€ */
 		let pdListText1 = document.querySelector('.pdListText')
 		window.addEventListener('scroll',function(){
 			 let value = window.scrollY
 			 console.log("scrollY",value)
-			 if(value<2000){
+			 if(value<933){
 				pdListText1.style.animation='disappear 1s ease-out forwards'
-			 }else if(value>2000 && value<3200){
+			 }else if(value>933 && value<1600){
 				pdListText1.style.animation='slide 1s ease-out forwards'
-			 }else if(value>3200){
+			 }else if(value>1600){
 				pdListText1.style.animation='disappear 1s ease-out forwards'
 			 }
 		});
 	});
-	
+	//main ì¥ë°”êµ¬ë‹ˆ
+	function cartChk(productImg, productName , productCm_no , id) {
+	    let cartIcon = document.getElementById("carticon-" + productName);
+	    let isActive = cartIcon.classList.contains('active');
+	    let c_count = 1;
+
+	    if (${empty id}) {
+	        alert("ë¡œê·¸ì¸ í›„ ì´ìš©í•´ ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤");
+	        location.href = "/highbrix/views/member/loginForm.yj";
+	        return false;
+	        
+	    } else {
+	        if (isActive) {
+	            alert(productName + " ìƒí’ˆì´ ì¥ë°”êµ¬ë‹ˆì—ì„œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
+	        } else {
+	            let cartAdd = confirm(productName + " ìƒí’ˆì„ ì¥ë°”êµ¬ë‹ˆì— ì¶”ê°€í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+	            if(cartAdd){
+		             // ì¥ë°”êµ¬ë‹ˆì— ìƒí’ˆì„ ì¶”ê°€í•˜ëŠ” Ajax ìš”ì²­ì„ ë³´ëƒ…ë‹ˆë‹¤.
+			         addToCart(productCm_no, id , c_count);
+	            }else return false;
+
+	        }
+	        cartIcon.classList.toggle('active');
+	        const cartImg = isActive ? "${img}" : "${fimg}";
+	        document.getElementById("carticon-" + productName).src = cartImg;
+	    }
+	}
+	function addToCart(cm_no, id , c_count) {
+	    // Ajaxë¥¼ ì‚¬ìš©í•˜ì—¬ ì„œë²„ì— ìƒí’ˆ ì¶”ê°€ ìš”ì²­ì„ ë³´ëƒ…ë‹ˆë‹¤.
+	    let xhr = new XMLHttpRequest();																	/* ê°œìˆ˜ê°€ë¯¸ë¦¬ 1ê°œ ì˜¬ë¼ê°€ì„œ ë°©ì§€ìš©ìœ¼ë¡œ -1 */
+	    xhr.open("POST", "/highbrix/views/member/cartInsert.ms?cm_no=" + cm_no + "&id=" + id + "&c_count=" + (c_count-1),true);
+	    xhr.onreadystatechange = function() {
+	        if (xhr.readyState === XMLHttpRequest.DONE) {
+	            if (xhr.status === 200) {
+	                // ìƒí’ˆì´ ì„±ê³µì ìœ¼ë¡œ ì¶”ê°€ë˜ë©´, ì´ë™í•  í˜ì´ì§€ë¡œ ì´ë™í•©ë‹ˆë‹¤.
+	                location.href = "/highbrix/views/member/cartInsert.ms?cm_no="+ cm_no + "&id=" + id + "&c_count=" + c_count; // ì¥ë°”êµ¬ë‹ˆ í˜ì´ì§€ì˜ URLë¡œ ë³€ê²½
+	            } else {
+	                console.error("ìƒí’ˆ ì¶”ê°€ ì‹¤íŒ¨: " + xhr.responseText);
+	            }
+	        }
+	    };
+	    xhr.send();
+	}
 </script>
+<style type="text/css">
+.sub-middle-layout { /* í‘¸í„° ë¯¸ë“¤ë ˆì´ì•„ì›ƒ ë°€ì–´ë‚´ê¸° */
+	height:2850px;
+}
+</style>
 </head>
-
 <body>
-<div class="wrap"> <!-- ÀüÃ¼ À¥ÆäÀÌÁö div -->
-	<header>
-		<div class="top"> <!-- ·Î±×ÀÎ/È¸¿ø°¡ÀÔ -->
-	    	<div class="logo-login">
-	        	<div class="logo">
-	            	<a href="/highbrix/dpMain.do"><img alt="ÇÏÀÌºê¸¯½º ·Î°í" src="/highbrix/images/highbrix.png"></a>
-	        	</div> <!-- ÇÏÀÌºê¸¯½º ÀÌ¹ÌÁö·Î°í -->
-	        	<div class="login"> <!-- loginForm ±â´É±¸Çö -->
-	            	<a href="loginForm.do" >·Î±×ÀÎ</a>/<a href="join.do">È¸¿ø°¡ÀÔ</a>
-	       	 	</div>
-	    	</div>
-		</div>
-		<form action="searchForm.do"> <!-- searchForm : °Ë»ö±â´É±¸Çö -->
-				<div class="search">
-					<input type="text" name="search" placeholder="°Ë»ö³»¿ëÀÔ·Â">
-					<input type="submit" value="°Ë»ö">
-				</div>
-		</form>
-		
-		<div class="menu">
-			<div class="icon"> <!-- icon : Ä«Å×°í¸®±â´É±¸Çö -->
-				<input type="checkbox" id="menuicon"> 
-					<label for="menuicon">
-						<span></span>
-						<span></span>
-						<span></span>
-					</label>
-					<div class="sidebar"> <!-- iconÅ¬¸¯ ½Ã Ä«Å×°í¸® »çÀÌµå¹Ù ±¸Çö -->
-					<ol>
-						<li><a href="">°úÀÏ</a></li>
-						<li><a href="">°úÀÏ¼±¹°¼¼Æ®</a></li>
-						<li><a href="">ÄÅ°úÀÏ</a></li>
-						<li><a href="">°úÀÏÁÖ½º</a></li>
-						<li><a href="">Á¤±â±¸µ¶°úÀÏ</a></li>
-						<li><a href="">¹¹¸Ô°í½Í¾î?</a></li>
-					</ol>
-				</div>
-			</div>
-				
-			<div class="menu_list"> <!-- »ó´Ü¸Ş´º list -->	
-				<ul>
-					<li><a href="">»óÇ°</a></li>
-					<li><a href="">SALE</a></li>
-					<li><a href="">Á¤±â±¸µ¶</a></li>
-					<li><a href="">»ç´Ùµå¸²</a></li>
-					<li><a href="customer.cu">°í°´¼¾ÅÍ</a></li>	
-				</ul>
-			</div>
+<%@ include file="/decorator/navImgSlide.html" %>	<!-- ë¶€íŠ¸ìŠ¤íŠ¸ë© ì¶”ê°€ì‹œ display.cssê°€ ë¶€ë¶„ì ìœ¼ë¡œì•ˆë¨¹í˜ -->
 
-		</div>
-	</header> <!-- Çì´õ±¸Çö Á¾·á -->
-		<div class="nav_bar"> <!-- ³×ºñ°ÔÀÌ¼Ç¹Ù Å©±â [1920 x 600] -->
-			<ul>
-				<li><a href="subscribe.do"><img alt="³×ºñ°ÔÀÌ¼Ç¹Ù" src="/highbrix/images/highbrixnav.png"></a>
-			</ul>
-		</div>
-	
-	<main><!-- ¸ŞÀÎ±¸Çö ½ÃÀÛ -->
+<div class="wrap"> <!-- ì „ì²´ ì›¹í˜ì´ì§€ div -->
+<!-- ë©”ì¸êµ¬í˜„ ì‹œì‘ -->
 		<div class="main_content">
-			
-			<p class="mainText1">ÀÌ ¹°Ç°Àº ¾î¶°¼¼¿ä?</p>
+			<p class="mainText1">ì´ ë¬¼í’ˆì€ ì–´ë– ì„¸ìš”?</p>
 			<div class="pdList">
-				<ul> <!-- »óÇ°¸®½ºÆ® -->
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="½ºÅ×ºñ¾ÆÃ»±Ö" src="/highbrix/images/product_img/apple.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">²Ü ¿¹»ê »ç°ú(1kg)</a><p>
-							<div class="pdPrice"><a href="">29,900¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
+				<ul> <!-- ìƒí’ˆë¦¬ìŠ¤íŠ¸ -->
+					<c:if test="${empty list }">
+						<li>ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤</li>
+					</c:if>
+					<c:if test="${not empty list }"><c:forEach var="product"  items="${list }">
+						<li class="pdListCon">
+							<div class="imgWrap">
+								<a href="productContent.mk?cm_no=${product.cm_no }">
+									<img alt="${product.cm_name }" src="/highbrix/images/product_img/${product.cm_image }">
+								</a>
 							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>	
-					</li> <!-- Ã»±Ö ¿Ï·á -->
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="¿¹»ê ºÎ»ç»ç°ú" src="/highbrix/images/product_img/pear.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="" vlink="black">³ªÁÖ ½Å°í¹è(1kg)</a><p>
-							<div class="pdPrice"><a href="">15,000¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="³ªÁÖ ¹è" src="/highbrix/images/product_img/strawberry.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">»êÃ» ¼³Çâµş±â(500g)</a><p>
-							<div class="pdPrice"><a href="">15,000¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="½ºÅ×ºñ¾ÆÃ»±Ö" src="/highbrix/images/product_img/mandarin.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">Å¸ÀÌº¤ °¨±Ö1¹Ú½º[5kg]</a><p>
-							<div class="pdPrice"><a href="">39,900¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="pdList">
-				<ul> <!-- »óÇ°¸®½ºÆ® -->
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="Çã´ÏÆÄÀÎ¾ÖÇÃ" src="/highbrix/images/product_img/pineapple.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">Çã´Ï±Û·Î¿ì ÆÄÀÎ¾ÖÇÃ[1Åë]</a><p>
-							<div class="pdPrice"><a href="">7,000¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>	
-					</li> <!-- Ã»±Ö ¿Ï·á -->
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="ÅÂ±¹¸Á°í" src="/highbrix/images/product_img/mango.jpg">
-							</a>
-						</div> 
-						<div class="txtWrap"><p><a href="">ÅÂ±¹¸Á°í[2°³]</a><p>
-							<div class="pdPrice"><a href="">9,900¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="¾ÖÇÃ¸Á°í" src="/highbrix/images/product_img/applemango.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">¾ÖÇÃ¸Á°í[2°³]</a><p>
-							<div class="pdPrice"><a href="">19,900¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="»şÀÎ¸Ó½ºÄÏ" src="/highbrix/images/product_img/Shine.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">»şÀÎ¸Ó½ºÄÏ[1¹Ú½º]</a><p>
-							<div class="pdPrice"><a href="">29,900¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
+							<div class="txtWrap"><p><a href="productContent.mk?cm_no=${product.cm_no }">${product.cm_name }</a><p>
+								<div class="pdPrice"><a href="productContent.mk?cm_no=${product.cm_no }">${product.cm_price }ì›</a><p></div>
+								<div class="cart" onclick="cartChk('${product.cm_image}', '${product.cm_name}','${product.cm_no}','${id }')">
+    								<img id="carticon-${product.cm_name}" class="cart-icon" alt="ì¥ë°”êµ¬ë‹ˆ" src="${img}">
+								</div>
+							</div>	
+						</li>
+					</c:forEach></c:if>
 				</ul>
 			</div>
 			
-			<p class="mainText1">ÇÒÀÎ »óÇ°</p>
-			<div class="pdList">
-				<ul> <!-- »óÇ°¸®½ºÆ® -->
+			<!-- í• ì¸ìƒí’ˆ -->
+			<p class="mainText1">í• ì¸ ìƒí’ˆ</p>
+			<div class="pdList2">
+				<ul> <!-- ìƒí’ˆë¦¬ìŠ¤íŠ¸ -->
+					<c:if test="${empty list2 }">
+						<li>ë°ì´í„°ê°€ì—†ìŠµë‹ˆë‹¤</li>
+					</c:if>
 					<li class="pdListCon">
 						<div class="pdListText">
-							<h1>³õÄ¡±â ¾Æ½¬¿î</h1>
-							<h2>ÇÒÀÎ »óÇ°</h2>	
+							<h1>ë†“ì¹˜ê¸° ì•„ì‰¬ìš´</h1>
+							<h2>í• ì¸ ìƒí’ˆ</h2>	
 							-------------<p>
 						
-							<h3>ÇÒÀÎÇÏ´Â °úÀÏÀ»</h3><p>
-							<h3>Áö±İ¹Ù·Î ¸¸³ªº¸¼¼¿ä!</h3><p>
-							<button>´õº¸±â</button> <!-- ÇÒÀÎ»óÇ°pageÀÌµ¿ -->
-						
+							<h3>í• ì¸í•˜ëŠ” ê³¼ì¼ì„</h3><p>
+							<h3>ì§€ê¸ˆë°”ë¡œ ë§Œë‚˜ë³´ì„¸ìš”!</h3><p>
+							<button class="moreBtn" onclick="location.href='disproductList.mk'">ë”ë³´ê¸°</button> <!-- í• ì¸ìƒí’ˆpageì´ë™ -->
 						</div>
-					</li> <!-- Ã»±Ö ¿Ï·á -->
+					</li> <!-- ì²­ê·¤ ì™„ë£Œ -->
+					<c:if test="${not empty list2 }"><c:forEach var="product_dis" items="${list2 }">
 					<li class="pdListCon">
 						<div class="imgWrap">
-							<a href="">
-								<img alt="Åä¸Á°í" src="/highbrix/images/product_img/tomato.jpg">
+							<a href="productContent.mk?cm_no=${product_dis.cm_no }">
+								<img alt="${product_dis.cm_name }" src="/highbrix/images/product_img/${product_dis.cm_image }">
 							</a>
 						</div>
-						<div class="txtWrap"><p><a href="">½ºÅ×ºñ¾Æ Åä¸Á°í(500g)</a><p>
+						<div class="txtWrap"><p><a href="">${product_dis.cm_name }</a><p>
 							<div class="pdPrice">
-								<a href="">6,500¿ø</a><br>
-								<a href="" id="pritest">8,000¿ø</a><br>
-								¡Ú¡Ú¡Ú¡Ú¡Ú
+							<a><fmt:formatNumber value="${product_dis.cm_price- product_dis.cm_discount * product_dis.cm_price/100 }"
+									pattern="#">
+								</fmt:formatNumber>ì›</a><br>
+								<span class ="pdDis" style="text-decoration: line-through;">${product_dis.cm_price}ì›</span>
 							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
+							<div class="cart" onclick="cartChk('${product_dis.cm_image}', '${product_dis.cm_name}','${product_dis.cm_no}','${id }')">
+    							<img id="carticon-${product_dis.cm_name}" class="cart-icon" alt="ì¥ë°”êµ¬ë‹ˆ" src="${img}">
+							</div>
 						</div>	
-					</li> <!-- Ã»±Ö ¿Ï·á -->
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="º°¸¶Åä" src="/highbrix/images/product_img/tomato2.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">½ºÅ×ºñ¾Æ º°¸¶Åä(500g)</a><p>
-							<div class="pdPrice">
-								<a href="">7,000¿ø</a><br>
-								<a href="" id="pritest">9,000¿ø</a><br>
-								¡Ú¡Ú¡Ú¡Ú¡Ú
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="Á©¸®¸¶Åä" src="/highbrix/images/product_img/tomato3.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">½ºÅ×ºñ¾Æ Á©¸®¸¶Åä(500g)</a><p>
-							<div class="pdPrice">
-								<a href="">7,000¿ø</a><br>
-								<a href="" id="pritest">9,000¿ø</a><br>
-								¡Ú¡Ú¡Ú¡Ú¡Ú
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
+					</li> 
+					</c:forEach></c:if>
 				</ul>
 			</div>
-			<p class="mainText1">»õ·Ó°Ô µîÀåÇÑ<br> ½Å»óÇ°</p>
+			<p class="mainText1">ìƒˆë¡­ê²Œ ë“±ì¥í•œ<br> ì‹ ìƒí’ˆ</p>
 			<div class="pdList">
-				<ul> <!-- »óÇ°¸®½ºÆ® -->
+				<ul> <!-- ìƒí’ˆë¦¬ìŠ¤íŠ¸ -->
+					<c:if test="${empty list3 }">
+						<li>ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤</li>
+					</c:if>
+					<c:if test="${not empty list3 }"><c:forEach var="product_new" items="${list3 }">
 					<li class="pdListCon">
 						<div class="imgWrap">
-							<a href="">
-								<img alt="ÇÇÄ¡¾ÖÇÃ" src="/highbrix/images/product_img/peachapple.jpg">
+							<a href="productContent.mk?cm_no=${product_new.cm_no }">
+								<img alt="${product_new.cm_name }" src="/highbrix/images/product_img/${product_new.cm_image }">
 							</a>
 						</div>
-						<div class="txtWrap"><p><a href="">ÇÇÄ¡¾ÖÇÃ(1kg)</a><p>
-							<div class="pdPrice"><a href="">15,000¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
+						<div class="txtWrap"><p><a href="">${product_new.cm_name }</a><p>
+							<div class="pdPrice"><a href="">${product_new.cm_price }ì›</a><p>
 							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
+							<div class="cart" onclick="cartChk('${product_new.cm_image}', '${product_new.cm_name}','${product_new.cm_no}','${id }')">
+    							<img id="carticon-${product_new.cm_name}" class="cart-icon" alt="ì¥ë°”êµ¬ë‹ˆ" src="${img}">
+							</div>
 						</div>	
-					</li> <!-- Ã»±Ö ¿Ï·á -->
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="ÆÄÆÄ¾ß¸Ş·Ğ" src="/highbrix/images/product_img/papayamelon.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">ÆÄÆÄ¾ß¸Ş·Ğ(2°³)</a><p>
-							<div class="pdPrice"><a href="">10,000¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="½Åµ¥·¼¶óµş±â" src="/highbrix/images/product_img/strawberry2.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">½Åµ¥·¼¶óµş±â(500g)</a><p>
-							<div class="pdPrice"><a href="">10,000¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
-					<li class="pdListCon">
-						<div class="imgWrap">
-							<a href="">
-								<img alt="½ºÅ×ºñ¾ÆÀÚ¸ù" src="/highbrix/images/product_img/jamong.jpg">
-							</a>
-						</div>
-						<div class="txtWrap"><p><a href="">½ºÅ×ºñ¾ÆÀÚ¸ù(1kg)</a><p>
-							<div class="pdPrice"><a href="">12,900¿ø</a><p>
-								<span>¡Ú¡Ú¡Ú¡Ú¡Ú</span>
-							</div>
-							<div class="cart"><a href=""><img alt="Àå¹Ù±¸´Ï" src="/highbrix/images/cart.jpg"></a></div>
-						</div>
-					</li>
+					</li> <!-- ì²­ê·¤ ì™„ë£Œ -->
+					</c:forEach></c:if>
 				</ul>
+			</div>
+			<div style="width: 100%; height:400px; margin:0 auto;">
+				<div style="width: 1000px; height:400px; margin: 0 auto; text-align: center; overflow: hidden; margin-top: 150px;">
+					<c:if test="${empty review }">
+						<h2>ë¹„ì–´ìˆëŠ” ë¦¬ë·°ì…ë‹ˆë‹¤</h2>
+					</c:if>
+					<c:if test="${not empty review }">
+					<div id="reviewList" style="width: 300px; height: 100%; float: left;  display: flex; align-items: center; justify-content: center;">
+		    			<div style="margin-bottom: 150px">
+						<h2 style="font-weight: bold;">í•˜ì´ë¸Œë¦­ìŠ¤ íšŒì›ë‹˜ì˜</h2><p>
+						<h3 style="font-weight: bold;">ìƒìƒí•œ í›„ê¸° [ìµœì‹ 4í•­ëª©]</h3>
+						</div>
+					</div>
+						<c:forEach var="review" items="${review}">
+							<div id="reviewList" style="width: 150px; height: 400px; float: left; margin:0 10px;">
+								<c:if test="${review.r_image == null }">
+									<img align="middle" width="100%" height="160" alt="ë¦¬ë·°ì‚¬ì§„" src="/highbrix/images/user.png">					
+								</c:if>
+								<c:if test="${review.r_image != null }">
+									<img align="middle" width="100%" height="160" alt="ë¦¬ë·°ì‚¬ì§„" src="/highbrix/images/review_img/${review.r_image }">						
+								</c:if>
+								<hr>
+								<h5 style="font-weight: bold;">${review.r_title }</h5>
+								<hr>
+								<h6 style="font-weight: bold;">${review.r_content }</h6>
+							</div>
+						</c:forEach>
+					</c:if>
+				</div>
 			</div>
 		</div>
-	</main>
-
-<footer class ="footer">
-	<hr>
-	<div class="footerText">
-		<h3>ÇÁ·ÎÁ§Æ®¸í : ÇÏÀÌºê¸¯½º / Á¶¿ø : È²Àç±â,Á¤¹Î±Ç,ÇÑ¹Î¼­,±è¿¹Áö</h3>
-		<a href="/highbrix/dpMain.do"><img alt="ÇÏÀÌºê¸¯½º ·Î°í" src="/highbrix/images/highbrix.png"></a>
-	</div>
-</footer>
-</div>
+		</div>
 </body>
 </html>

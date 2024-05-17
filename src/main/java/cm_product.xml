@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cm_productns">
+	<!-- 메인화면 상품리스트 -->
+	<select id="select_main1" resultType="cm_product" >
+		select * from (select a.* ,rowNum rn from(select * from cm_product order by cm_no) a) 
+		where rn between 1 and 8
+	</select>
+	
+	<select id="select_main2" resultType="cm_product">
+		select * from cm_product where cm_discount > 0 
+	</select>
+	
+	<select id="select_main3" resultType="cm_product">
+		select * from (select a.* ,rowNum rn from(select * from cm_product order by cm_date desc) a) 
+		where rn between 1 and 4
+	</select>
+	
+	<!-- 일반상품 번호 조회 -->
+	<select id="select_no" parameterType="integer" resultType="cm_product">
+		select * from cm_product where cm_no=#{cm_no}
+	</select>
+	<!-- 관리자화면 상품조회 -->
+	<select id="select_pro" parameterType="string" resultType="cm_product">
+		select * from cm_product where cm_name=#{cm_name}
+	</select>
+	<!-- 관리자 상품등록 -->
+	<insert id="insert_pro" parameterType="cm_product">
+		<!-- cm_content와 cm_detailimg값을 받아 DB에 주입 [재기추가] -->
+		insert into cm_product values(cm_no_seq.nextval,#{cm_name},#{cm_content},#{cm_image},
+				#{cm_price},#{cm_discount},sysdate,0,#{cm_count},#{cm_detailimage})
+	</insert>
+	<!-- 관리자 상품수정 -->
+	<update id="update_pro" parameterType="cm_product">
+		update cm_product set 
+			cm_name=#{cm_name},
+			<if test="cm_content!=null and cm_content!=''">
+				cm_content=#{cm_content},
+			</if>
+			<if test="cm_image!=null and cm_image!=''">
+				cm_image=#{cm_image},
+			</if>			
+			cm_price=#{cm_price}, cm_discount=#{cm_discount}, cm_count=#{cm_count} 
+				where cm_no=#{cm_no}
+	</update>
+	<!-- 관리자 상품삭제 -->
+	<update id="delete_pro" parameterType="cm_product">
+		delete from cm_product where cm_no=#{cm_no}
+	</update>
+	<!-- 일반상품 목록조회 -->
+	<select id="select" resultType="cm_product"
+		parameterType="integer">
+		select * from cm_product where cm_no = #{cm_no}
+	</select>
+	<!-- 일반상품 갯수 -->
+	<select id="getTotal" resultType="integer">
+		select count(*) from cm_product
+	</select>
+	<!-- 일반상품 페이징 -->
+	<select resultType="cm_product" id="cm_list" parameterType="map">
+		select * from (select rowNum rn , a.* from(select * from cm_product order by cm_no) a)
+		where rn between #{startRow} and #{endRow} 
+	</select>
+	<!-- 할인상품 -->
+	<!-- 할인상품 목록조회 -->
+	<select id="disproduct" resultType="cm_product">
+		select * from cm_product where cm_discount > 0 order by cm_discount asc
+	</select>
+	<!-- 할인상품 개수 -->
+	<select id="getTotaldis" resultType="integer">
+		select count(*) from cm_product where cm_discount > 0
+	</select>
+	<!-- 할인상품 페이징 -->
+	<select id="dis_list" resultType="cm_product" parameterType="map">
+		 select * from (select rowNum rn ,a.* from (select * from cm_product where cm_discount > 0 
+		 order by cm_discount asc) a) where rn between #{startRow} and #{endRow}
+	</select>
+	<!-- 장바구니 -->
+	<select id="cartlist" resultType="cm_product" parameterType="map">
+		select * from cm_product where cm_no in (
+			select cm_no from cart where id = #{id})
+	</select>
+	<!-- 검색 -->
+	<select id="search" resultType="cm_product" parameterType="string">
+	 <!-- select * from cm_product where cm_name like '%딸기%'; -->
+		 select * from cm_product where cm_name like '%'||#{search}||'%'
+		 
+	</select>
+	<!-- 구매목록 -->
+	<select id="select_buy" resultType="cm_product">
+		select * from cm_product cm, buy_list bl
+		where cm.cm_no = bl.cm_no
+	</select>
+</mapper>

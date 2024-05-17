@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decorators defaultdir="/decorator">
+	<decorator name="decorator" page="view.jsp">
+		<!-- 적용할 페이지 선택 -->
+		<pattern>/views/member/*</pattern>
+		<pattern>/views/display/*</pattern>
+		<pattern>/views/border/*</pattern>
+		<pattern>/views/admin/*</pattern>
+	</decorator>
+	   <excludes>
+	    <pattern>/views/member/db_buyForm.*</pattern>
+        <pattern>/views/member/confirm.*</pattern>
+        <pattern>/views/admin/confirm.*</pattern>       
+    </excludes>
+</decorators>

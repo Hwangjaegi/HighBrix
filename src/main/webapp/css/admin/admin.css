@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* 기본 스타일 설정 */
+body {
+	background-color: #FDF9E7;
+	font-family: 'SUITE-Regular', sans-serif;
+}
+
+body>div {
+	font-family: 'SUITE-Regular', sans-serif;
+}
+
+.sub-middle-layout {
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+.err {
+	color: #FF6244;
+	font-weight: bold;
+}
+
+.hi {
+	font-size: 25px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.container {
+	border-radius: 5px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#icon {
+	margin: 10px;
+}
+
+.txt {
+	font-size: 20px;
+}
+
+.display {
+	display: inline-block;
+	width: calc(30% - 20px); /* 요소의 너비를 25%로 설정하고 여백을 뺀 크기로 계산 */
+	text-align: center;
+	margin: 10px;
+	background-color: #fff;
+	padding: 40px;
+	border-radius: 20px; /* 테두리 모서리를 둥글게 함 */
+	box-sizing: border-box;
+}
+
+a {
+	display: inline-grid;
+}
+
+.txt {
+	color: #FF6244;
+	text-decoration: none;
+	font-weight: bold;
+}

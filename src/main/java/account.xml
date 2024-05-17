@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="borderns">
+	<select id="getTotal" resultType="integer" >
+		select count(*) from account
+	</select>
+	
+	<!-- 데이터 정보 가져오기 --><!-- account => Acount -->
+	<select id="list" parameterType="map" resultType="account"> 	<!-- 답변글REF를 못해서 임시로 A_no로 합니다. -->
+		select * from (select rownum rn, a.* from (select * from account order by A_ref desc,A_step
+			) a) where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<!-- 게시글작성 , 답변글작성 쿼리 -->
+	
+	<select id="selectNum" parameterType="integer" resultType="integer">
+		select nvl(max(a_no),0) +1 from account
+	</select>
+	
+	<insert id="insert" parameterType="account">													<!-- null : id -->
+		insert into account values(#{a_no},#{a_title},#{a_password},#{a_content},sysdate,0,#{a_image},'n',#{a_ref},#{a_step},#{a_level},#{id})
+	</insert>
+	
+	<update id="readcount" parameterType="integer">	<!-- int로 적어도 된다  -->
+		update account set a_view = a_view+1 where a_no = #{num}
+	</update>
+	
+	<select id="select" parameterType="integer" resultType="account">
+		select * from account where a_no = #{num}
+	</select>
+	
+	<update id="update" parameterType="account">
+		update account set a_title=#{a_title},a_content=#{a_content}
+		<!-- 이미지 수정 시 선택안하면 기존파일이 들어가고 선택하면 선택한 파일이 들어가는 sql -->
+		<if test="a_image!=null and a_image!=''">
+			,a_image=#{a_image}
+		</if>
+		 where a_no = #{a_no}
+	</update>
+	
+	<update id="delete" parameterType="integer">
+		update account set a_del = 'y' where a_no = #{a_no}
+	</update>
+	<update id="updateUp" parameterType="account">	
+		<!-- 답변글일때 : ref는 본글의 ref를 가져와서 사용한다 즉 답변글의 ref == 본글 ref
+					   step은 본글에 +1하고 level은 답변글이 더 높다  -->
+		update account set a_step = a_step+1 where a_ref=#{a_ref} and a_step > #{a_step}
+	</update>
+</mapper>

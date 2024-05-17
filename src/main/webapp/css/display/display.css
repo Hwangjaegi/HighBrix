@@ -1,149 +1,127 @@
 @charset "UTF-8";
-body{
-	margin:	0px;
-	padding: 0px;
+
+body{	/* 전체 웹사이트 마진,패딩값 초기화 */
 	box-sizing:border-box;
-}
-#pritest{
-	text-decoration: line-through;
-	font-size: 18px;
-	color:#8C8C8C;
-}
-.wrap{
-	/* 전체웹에 최대 가로길이를 주고 margin: 0 auto하게되면 중앙배치됨 */
-	max-width:1920px;
-	height: 5000px;
-	margin:0 auto;
-}
-.top{
-	margin-top:20px;
-	width: 100%;
-	height: 80px;
-	float: left;
-}
-.logo-login {
-    justify-content: space-between;
-    align-items: center;
-    float:left;
-}
-.logo{
-	position:relative;
-	left:800px;
-	width:350px;
-	height:300px;
-	float:left; 
-}
-.logo:hover{
-	cursor:pointer;
-}
-.login{
-	width:200px;
-	position: relative;
-	top: 0px;
-	float:right;
-	left:1375px;
-	
-}
-.login a{
-	text-decoration: none;
-	color : black; 
-	font-size: 25px;
-	font: bold;
-	
-}
-.logo-login>.login a:hover{
-	cursor: pointer;
-	color: red;
-}
-.search{
-	position: relative;
-	top:0px;
-	left:1690px; 
-	width:300px;
-	height:0px;
-	background-color: red;
-}
-.search input{
-	height: 40px;
-}
-.menu{
-	margin:0 auto;
-	margin-top:400px;
-	display: flex;
-    justify-content: center;	/* 중앙정렬 */
-    width: 100%; /* 이 값을 조정하여 메뉴 항목 간의 거리를 조절할 수 있습니다. */
-    position: sticky;
-}
-.icon{
-	float: left;
-	margin-top: 35px;
+	background-color: #FDF9E7;
 }
 
-.menu ul{
-	display:table;
-	list-style: none;
+img{
+	border-radius: 20px;
 }
-.menu ul li{
-	margin-left:20px;
-	padding:10px;
-	float:left;
-	font-size: 30px;
-	font-family: sans-serif;
+.nav_bar{	/* 뭐라그러더라.. 아무튼 하이브릭스 포스터? css */
+	margin-top: 30px;
+	position : relative; /* 위치를 설정하기 위해 절대 위치 지정 */
+	left: 50%; /* 왼쪽에서 50% 지점을 기준으로 정렬 */
+	transform: translateX(-50%);
+	width: 3000px;
 }
 
-.menu ul li a{
-	text-decoration: none;
+.carousel-control-prev{
+	position:fixed;
+	left:500px;
+}
+.carousel-control-next{
+	position:fixed;
+	right:500px;
+}
+.carousel-control-prev-icon{
 	color: black;
 }
 
-.menu ul li a:hover{
-	color: green;
-	cursor: pointer;
-}
-
-/* header css close */
-.nav_bar{
-	margin-top: 50px;
-}
-
-.nav_bar>ul>li{
+.nav_bar>ul>li{	/* 하이브릭스 포스터? css */
 	margin:-40px;
 	list-style: none;
 }
 
-main{
-	width:1920px;
-	height:3000px;
-	margin: 0 auto;
+.main_content{
+	width:1500px;
+	margin-top: 250px;
+	position : absolute; /* 위치를 설정하기 위해 절대 위치 지정 */
+	left: 50%; /* 왼쪽에서 50% 지점을 기준으로 정렬 */
+	transform: translateX(-50%);
+	
 }
 
-.mainText1{
+.mainText1{	/* 이물품은 어떠세요? */
 	font-size: 40px;
 	font-weight: bold;
-	margin-top:200px;
-	margin-left: 110px;
+	margin-top: 40px;
+	margin-left: 300px;
+}
+.pdcontainer{
+	margin-top: 100px;
+	width: 100%;
+}
+.pdTitle{
+	text-align: center;
+	font-size:25px;
+	font-weight: bold;
+	margin-bottom: 40px;
 }
 
-
-.pdList{
+.pdList{	/* 상품List 소개 */
 	display:flex;
 	justify-content:center;
 	list-style: none;
+	width:60%;
+	margin: 0 auto;
+
 }
-.pdList:nth-child(5){	/* 왜 5인지 모르겠으나 5로하니까 설정되었음 => 02-14 수업을통해 해결*/
-	background-color: #a6d8d9;
+.pdList2{	/* 상품List 소개 */
+	display:flex;
+	justify-content:center;
+	list-style: none;
+	width: 1200px;
+	margin: 0 auto;
 }
 
-.pdListCon{
+.pdListCon{	/* 상품별 li css  */
 	float:left;
 	list-style: none;
-	padding:30px;
-	
+	padding:5px;
 }
-.pdListText{
+
+.searchlist_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 100px;
+}
+
+.searchList {
+    list-style: none;
+    width: 970px; /* 또는 다른 너비 값 */
+    margin: 0 auto; /* 가운데 정렬 */
+}
+.searchListCon{
+	float:left;
+	list-style: none;
+	justify-content:center;
+	padding:10px;
+}
+.pdListText{	/* 할인상품의 놓치기아쉬운 할인상품 애니메이션구간 css + javascript 시작 */
 	position:relative;
 	left:-100px;
 	margin-left: 80px;
+	font-weight: bold;
+}
+.pdListText h1{
+	font-size: 45px;
+	font-weight: bold;
+}
+.pdListText h2{
+	font-size: 30px;
+	font-weight: bold;
+	color: orange;
+}
+.pdListText h3{
+	font-size: 25px;
+	font-weight: bold;
+}
+.pdListText button{
+	margin-top:10px;
+	font-size: 25px;
+	font-weight: bold;
 }
 @keyframes slide{
 	from{
@@ -167,58 +145,179 @@ main{
 	left:-500px;
 	opacity:0;
 	}
+}	/* 할인상품의 놓치기아쉬운 할인상품 애니메이션구간 css + javascript 끝 */
+
+/* 더보기 버튼 css */
+.moreBtn{
+   display: inline-block;
+   padding: 10px 20px;
+   font-size: 16px;
+   text-align: center;
+   text-decoration: none;
+   cursor: pointer;
+   outline: none;
+   border: none;
+   border-radius: 5px;
+   color: #fff;
+   background-color: #4caf50;
+   transition: background-color 0.3s;
 }
-#pdtext{
-	font-family: sans-serif;
-	font-weight: bold;
-	font-size: 100px;
+
+.moreBtn:hover {
+   background-color: #45a049;
 }
-#text1{
-	background-color:red;
-	margin:0px;
-	padding:0px;
-	font-family: sans-serif;
-	font-size:50px;
-	margin-right: 40px;
+
+/* 상품이미지 div css */
+.wrap{
+	
+	margin-top: -250px;
 }
-#text2{
-	font-size: 40px;
-	font-family: sans-serif;
-	margin-top: 1px;
+
+.imgWrap a img{
+    width: 200px; /* 메인상품이미지 너비의 설정 */
+    height: 250px; /* 메인상품이미지 높이 조정 */
+    position: relative;
+    left: 50%; /* 왼쪽에서 50% 지점을 기준으로 정렬 */
+    transform: translateX(-50%);
 }
-.imgWrap{
-	width:390px;
-	height:500px;
-}
-.txtWrap{
-	width:390px;
+
+.txtWrap{	/* 상품제목 css*/
+	width:200px;
 	float: left;
 }
-.txtWrap a{
+.txtWrap a{	
 	text-decoration:none;
 	color: black;
 	font-weight: bold;
+	font-size:16px;
 }
-.pdPrice{
+.pdPrice{	/* 상품가격 css*/
 	float:left;
 }
 .pdPrice a{
-	font-size: 22px;
+	font-size: 18px;
 }
-.cart{
+
+.cart{	/* 장바구니 css */
 	float: right;
 }
-.cart a img{
-	width: 50px;
+.cart img{
+	width: 30px;
+}
+.cart img:hover{
+	cursor: pointer;
 }
 
-.footer{
-	margin-top:600px;
+.search_null{
+	font-weight: bold;
 }
-.footerText{
+
+/* 페이징 */
+.pageBtn {
+    width: 30px;
+    font-size: 15px;
+    margin: 15px;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #FF6244;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: white;
+    color: #FF6244;
+}
+.page {
+	margin-top: 50px;
+}
+.pageBtn {
+    margin: 0 5px; /* 좌우 간격을 5px로 조정합니다. */
+}
+.prevBtn,
+.nextBtn {
+    margin: 0 10px; /* 좌우 간격을 10px로 조정합니다. */
+}
+
+/* 리뷰 */
+.reviewCon{
+	width: 1920px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+	position : relative; /* 위치를 설정하기 위해 절대 위치 지정 */
+	left: 50%; /* 왼쪽에서 50% 지점을 기준으로 정렬 */
+	transform: translateX(-50%);
+}
+.reviewCon>img{
+	display: grid;
+    place-items: center;
+    margin: 0;
+    text-align: center;
+    margin-top: 100px; 
+}
+.reviewCon>h2{
 	text-align: center;
-	font-family: sans-serif;
-	background-color: #F6F6F6;
+	margin:20px;
+	font-size: 40px;
+}
+.reviewImg{
+	width: 300px;
+	height: 400px;
+	
+}
+.star-rating{
+	border: 2px solid pink;
+	margin-bottom: 20px;
+}
+.star{
+	margin: 20px;
 }
 
+.ratingForm{
+	background: #FDF9E7;
+}
+
+.reviewTable{
+  	border-collapse: collapse;
+}
+.reviewTh{
+  background-color: #ff9fb0;
+  border:1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  font-size: 30px;
+  width:20%;
+}
+
+.reviewTd{
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+.reviewTd>input{
+	border: 2px solid #ccc; /* 테두리 추가 */
+  padding: 10px; /* 내부 여백 추가 */
+  border-radius: 5px; /* 모서리를 둥글게 만듭니다 */
+  background-color: #f9f9f9; /* 배경색 설정 */
+  cursor: pointer; /* 커서를 포인터로 변경하여 사용자에게 클릭 가능성을 나타냅니다 */
+	
+}
+
+.reviewTd>input , textarea{
+	border: none;
+	outline:none;
+	font-size: 30px;
+	background: #FDF9E7;
+	
+}
+#reviewBtn{
+	display:block;
+	margin:0 auto;
+	width: 150px;
+	height: 70px;
+	font-size: 30px;
+}
 /* 적용이안될 때 방문기록 삭제하면 적용될 때 있다 -> 크롬의 경우 자주 발생한다. */

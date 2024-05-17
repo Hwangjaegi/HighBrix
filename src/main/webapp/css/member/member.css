@@ -1,0 +1,906 @@
+@charset "UTF-8";
+
+body {
+	margin: 0 auto;
+	padding: 0;
+	box-sizing: border-box;
+	justify-content: center;
+	align-content : center;
+	background-color: #FDF9E7;
+}
+.sub-middle-layout {
+	margin: 100px 0 100px 0 ;
+}
+.member_warning, .btn_join{margin:15px 0 0 0;}
+/* 회원가입 */
+.join-wrap{
+	flex-direction: column;
+	justify-content: center;
+	align-content : center;
+	margin: 20px auto 5em 0;
+	position: relative;
+}
+.join-form {
+	width : 50%;
+	justify-content: center;
+	align-content : center;
+	margin:0 auto;
+}
+.join-form h2{
+	margin-bottom:50px;
+	text-align : center;
+	justify-content : center;
+	vertical-align : middle;
+	position: relative;
+	display: flex;
+	font-size: 30px;
+	font-weight: bold;
+}
+.join-form table{
+	width: 100%;
+	justify-content: center;
+	align-content: center;
+}
+.join-form table th{
+	padding: 10px 25px;
+	text-align: center;
+	border-bottom : 1px solid #ccc;
+	font-size: 16px;
+	font-weight: bold;
+}
+.join-form table th span{
+	padding: 0 0 0 10px;
+	margin: 0 0 0 -10px;
+}
+.join-form table th:first-child,
+.join-form table td:first-child{
+	border-left:none;
+}
+.join-form table td{
+	padding : 15px 0 15px 15px;
+	border-bottom : 1px solid #ccc;
+	font-size: 15px;
+}
+.join-form table .table-id,
+.join-form table input{
+	margin-left: 20px;
+	padding-left:10px; 
+}
+.table-id{
+	font-weight: bold;
+	font-size: 15px;
+}
+.join-form table input[type="text"],
+.join-form table input[type="email"]{ 
+	width: 300px;
+	height: 25px;
+}
+.join-form table input[type="password"],
+.join-form table input[type="tel"]{
+	width: 200px;
+	height: 25px;
+}
+
+.join-form table .form_element{
+	display:block;
+	margin-top: 5px;
+}
+.join-form table .id_jchk{
+	float: inherit;
+	font-size:15px;
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+	width: 80px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.join-form .btn_join{
+	/* margin-left: 270px; */
+	justify-content: center;
+	align-content: center;
+	display: flex;
+	padding: 0 5px;
+}
+.join-form .btn_join button:first-child{
+	width: 150px;
+	height: 50px;
+	margin : 10px 10px 0 0;
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+	font-size : 14px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.join-form .btn_join button{
+	width: 150px;
+	height: 50px;
+	margin : 10px 0 0 5px;
+	border: 1px solid #FF6244;
+	background-color: white;
+	color: #FF6244;
+	font-size : 14px;
+	font-weight: bold;
+	cursor:pointer;
+}
+/* 로그인 */
+.login-wrap{
+	margin-bottom:5em;
+	justify-content: center;
+	align-content: center;
+	display: flex;
+}
+.login-form .login_box h2 {
+	text-align: center;
+	vertical-align: middle;
+ 	font-weight: bold;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.login-form .login_box .login_input_sec{
+	justify-content: center;
+	align-content: center;
+}
+.login-form .login_box .login_input_sec > div{
+	justify-content: center;
+	align-content: center;
+	float: left;
+}
+.login-form .login_box .login_input_sec input{
+	display:block; 
+	width:292px; 
+	height:36px; 
+	margin:15px 0 10px 30px;
+	border: 1px solid #888; 
+	color: rgb(67,67,67) ;
+	padding-left: 20px;
+}
+	
+ .login-form .login_box .login_input_sec button{
+	float:rigth;
+	width: 158px;
+	height: 91px;
+	margin : 15px 0 0 15px;
+	border: 1px solid #FF6244;
+	background-color: white;
+	color: #FF6244;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-right: 40px;
+}	
+.login-form .login_box .login_input_sec button:hover{
+	background-color: #FF6244;
+	border:1px solid #FF6244;
+	color: white;}
+
+.login-form .btn_login{
+/* 	margin: 20px 0 0 0; */
+	padding : 20px 0 0 0;
+	border-top: 1px solid #888;
+}
+.login-form .btn_login ul .join_box {
+	width: 150px;
+	height: 50px;
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+	font-size : 14px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.login-form .btn_login button{
+	width: 150px;
+	height: 50px;
+	margin : 10px auto;
+	border: 1px solid #FF6244;
+	background-color: white;
+	color: #FF6244;
+	font-size : 14px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.login-form .btn_login li{
+	float: left;
+	/* margin : 0 0 0 10px; */
+	list-style: none;
+}
+.login-form .btn_login li:first-child{
+	margin-left: 30px;
+	margin-right: 10px;
+}
+.login-form .btn_login li:last-child{
+	margin : 0 10px 0 10px;
+}
+
+/* 마이페이지 */
+.mypageForm-wrap {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}
+.mypageForm-wrap .section{
+	width : 100%;
+	margin: 5px 0 30px 40px;
+}
+.mypageForm-wrap .section .my_top {
+	justify-content: center;
+	align-content: center;
+	display: flex;
+	font-size: 30px;
+	font-weight: bold;
+	margin: 1em auto 2em;
+}
+.mypageForm-wrap .section .my_top span{
+	color: #FF6244;
+	font-size: 30px;
+	font-weight: bold;
+}
+.mypageForm-wrap .section .my_menu{
+	margin: 10px 0 100px 0;
+}
+.mypageForm-wrap .section .my_menu div{
+	justify-content: center;
+	align-content: center;
+	display: flex;
+	margin: 5px;
+}
+.my_menu button{
+	margin : 3px;
+	float : left;
+	width: 250px;
+	height: 130px;
+	font-size: 20px;
+	font-weight: bold;
+	color: #FF6244;
+	border: 1px solid #FF6244;
+	background-color:white;
+	cursor: pointer;
+}
+.my_menu button:hover{
+	color: white;
+	border: 1px solid #FF6244;
+	background-color:  #FF6244;
+	cursor: pointer;
+}
+
+/* 아이디찾기/비밀번호 찾기 */
+.login-form .btn_findId {
+	margin-left: 3em;
+	padding : 20px 0 0 0;
+}
+
+.login-form .btn_findId button{
+	width: 200px;
+	height: 50px;
+	margin : 10px 5px;
+	border: 1px solid #FF6244;
+	background-color: white;
+	color: #FF6244;
+	font-size : 14px;
+	font-weight: bold;
+	cursor:pointer;
+	margin-right: 40px; 
+}
+.login-form .find_box{
+	padding-bottom: 30px;
+	border-bottom: 1px solid #888;
+}
+.login-form .find_box h2 {
+	margin-bottom:2em;
+	text-align: center;
+	vertical-align: middle;
+ 	font-weight: bold;
+	font-size: 30px;
+}
+
+.login-form .find_box .login_input_sec{
+	justify-content: center;
+	align-content: center;
+}
+.login-form .find_box .login_input_sec > div{
+	justify-content: center;
+	align-content: center;
+	float: left;
+}
+.login-form .find_box .login_input_sec input{
+	display:block; 
+	width:292px; 
+	height:36px; 
+	margin:15px 0 10px 30px; 
+	padding-left : 10px;
+	border:1px solid #ccc; 
+	color:#555;}
+	
+ .login-form .find_box .login_input_sec button{
+	float:rigth;
+	width: 158px;
+	height: 91px;
+	margin : 15px 0 0 15px;
+	border: 1px solid #FF6244;
+	background-color: white;
+	color: #FF6244;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+}	
+.login-form .find_box .login_input_sec button:hover{
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white; }
+
+/* 아이디/비밀번호 찾기 결과 */
+.result-wrap{
+	margin-bottom: 3em;
+	justify-content: center;
+	align-content: center;
+	display: flex;
+}
+.result-wrap .result-form h1{
+	margin-bottom:3em;
+	text-align:center;
+	vertical-align: top;
+ 	font-weight: bold;
+	font-size: 30px;
+}
+.result-wrap .result-form .result-cont{
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+}
+.result-wrap .result-form .result-cont .result-btn button {
+	width: 150px;
+	height: 50px;
+	margin : 20px auto;
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+	font-size : 18px;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+/* 주문내역 */
+.buylist-wrap{
+	margin-bottom : 5em;
+	justify-content: center;
+	align-content: center;
+}
+.myorderList h2{
+	text-align : center;
+	justify-content : center;
+	vertical-align : middle;
+	position: relative;
+	display: flex;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom:50px;
+}
+.myorder_info {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    margin-bottom: 20px; /* 하단 여백 추가 */
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 2px solid #FF6244; 
+}
+.myorder_info form {
+    display: flex;
+    justify-content:space-around;
+	width: 100%;
+}
+.myorder_info form div{
+	margin:	10px;
+	float: right;	
+}
+
+
+.order_content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.order_obj{
+    margin: 20px;
+/*     border: 1px solid #ccc; */
+    width: 80%;
+    align-items: center;
+    padding : 10px;
+}
+.order_obj div{
+	float: left;
+}
+.order_con1 {
+	text-align: center;
+	justify-content: center;
+    align-items: center;
+    display: flex;
+ 	padding: 15px 0;
+ 	width:100%;
+ 	border-bottom: 1px solid #ccc; 
+}
+.image{
+	margin: 10px 0;
+	width: 100%;
+}
+.image img{
+	width: 70px;
+	height: auto;
+}
+.order_con2{
+	width: 100%;
+}
+.order_con3{
+	width: 80%;
+}
+.order_con4{
+	width: 110%;
+}
+.order_con2 a{
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
+
+.order_deli {
+    text-align: center;
+    color: #808080;
+    font-weight: bold;
+    width: 90%;
+}
+
+/* 주문내역-메인화면버튼 */
+.data_send{
+	display: flex;
+    justify-content: center;
+}
+.btn_order{ 
+	width: 200px;
+	height: 50px;
+	margin : 10px 5px;
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+	font-size : 16px;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+/* 찜목록 */
+.loveList-wrap {
+	margin-bottom : 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-bottom:10px;
+}
+
+.title h2{
+	text-align : center;
+	justify-content : center;
+	vertical-align : middle;
+	position: relative;
+	display: flex;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 5px;
+    padding : 3px;
+    border-bottom: 2px solid #FF6244; 
+}
+
+.caption-middle span{
+	display: flex;
+    align-items: center;
+    float:left;
+    margin : 0 2px;
+    font: 16px;
+    font-weight: bold;
+}
+.selectAllbutton-wrap {
+    flex: 1;
+    text-align: right;
+}
+
+.selectAll button{
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	width: 100px;
+	height: 30px;
+	font-size: 16px;
+	color: white;
+	margin : 2px 2px 2px 5px;
+}
+.list-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding : 10px 0;
+    width: 80%;
+}
+.list-wrap form{
+	width: 100%;
+}
+
+.productChk {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.product-wrap{
+	width : 100%;
+}
+.product-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding : 10px;
+    width : 100%;
+}
+
+.pdImg-container {
+    margin: 0 30px;
+}
+
+.pdImg {
+    width: 80px;
+    height: auto;
+}
+
+.text {
+    float: left;
+	font-size: 18px;
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* justify-content: space-around; */
+    width: 100%;
+}
+.text div a{
+	font-weight: bold;
+}
+.text div{
+	margin: 0 90px;
+}
+.btnDel {
+    float: right;
+    margin-right: 50px;
+}
+.btnDel img{
+	width: 40px;
+	height: auto;
+	cursor: pointer;
+}
+
+/* 회원탈퇴 */
+
+.member_del-wrap {
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.member_del {
+    width: 50%;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0 auto; /* 수평 가운데 정렬 */
+}
+
+
+.member_del-wrap h2 {
+    text-align: center;
+    font-size: 30px;
+	font-weight: bold;
+	margin-bottom:50px;
+}
+
+
+.member_del h3 {
+    margin-left: 10px;
+    background-color: white;
+}
+
+
+.del-content {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	background-color: white;
+}
+
+
+.del-content span {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+
+.memdel-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* 탈퇴하기 버튼 스타일 */
+.memdel-btn input[type="submit"] {
+   	border: 1px solid #FF6244;
+	background-color: #FF6244;
+    font-size: 16px;
+	color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* 탈퇴취소 버튼 스타일 */
+.memdel-btn input[type="button"] {
+    border: 1px solid #FF6244;
+	background-color: white;
+	font-size: 16px;
+	color: #FF6244;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+
+/* 구매폼 */
+.buyForm-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-wrap{
+	justify-content: center;
+	align-items: center;
+}
+.sub-tit{
+	justify-content: center;
+	font-size: 30px;
+	font-weight:bold;
+	text-align: center;
+}
+.left-cart {
+    width: 100%;
+}
+.sectionTitle{
+	font-size: 20px;
+	font-weight: bold;
+	margin-top : 2em;
+	margin-bottom: 20px;
+}
+.order-top,
+.payment-wrap {
+    text-align: center; /* 텍스트를 가운데 정렬 */
+	width: 150%;
+	margin-left: -25%;
+}
+
+.sectionWrap {
+    margin-top: 20px; /* 섹션 사이의 간격 조정 */
+}
+
+.formTable, .formTable2, .formTable3 {
+    width: 100%;
+    border-collapse: collapse; /* 테이블 셀 경계를 병합하여 테두리를 없앰 */
+	justify-content: center;
+	align-items: center;
+}
+.formTable-wrap{
+	width:100%;
+	justify-content: center;
+	align-content: center;
+	display: flex;
+	
+}
+.formTable-wrap table{
+	width:100%;
+	margin-left : 15%;
+	justify-content: center;
+	align-items: center;
+}
+.formTable-wrap th{
+	padding: 10px 25px;
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	font-size: 16px;
+	font-weight: normal;
+}
+.formTable-wrap td {
+ 	padding : 15px 0 15px 15px;
+	border-bottom: 1px solid #ccc;
+	font-size: 15px;
+	float: left;
+}
+.formTable-wrap input{
+	width : 200px;
+	height: 25px;
+	font-size: 16px;
+	font-family: sans-serif;
+	padding-left: 20px;
+}
+.formHeader{
+	font-size: 16px;
+	text-align: left;
+}
+.formHeader2{
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+}
+.formHeader3{
+	text-align: left;
+	font-size: 16px;
+	font-weight: bold;
+}
+.Cartproduct-wrap{
+	width: 100%;
+	margin-top: 25px;
+}
+.cart-top-info{
+	margin-top: 3em;
+	margin-bottom: 20px;
+}
+.cart-top-info span{
+	font-size: 20px;
+	font-weight: bold;
+}
+.product_buy_content{
+	width: 100%;
+}
+
+.product_buy_content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px; /* 상품 간격 조절 */
+}
+
+.product_buy_content .detail-img {
+	flex: 0 0 auto; /* 이미지가 너비를 차지하지 않도록 설정 */
+}
+
+.product_buy_content .cm_no,
+.product_buy_content .pd-name,
+.product_buy_content .pd-count,
+.product_buy_content .price {
+	flex: 1; /* 나머지 요소들이 남은 공간을 동일하게 차지하도록 설정 /
+	margin-right: 10px; / 요소 간격 조절 */
+}
+
+.product_buy_content .price {
+	text-align: right; /* 가격을 오른쪽 정렬 */
+}
+
+.detail-img{
+	justify-content: center;
+	align-items: center;
+}
+.detail-img img{
+	width: 100px;
+	height: auto;
+}
+
+.alignRight {
+    text-align: right; /* 우측 정렬 */
+}
+.alignRight3{
+	text-align: right;
+	font-weight: bold;
+}
+.buy-option-top{
+	font-weight: bold;
+	font-size: 20px;
+	border-bottom: 2px solid #FF6244; 
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-top: 3em;
+}
+.agreement-box {
+    margin-top: 20px; /* 약관 동의란의 위쪽 간격 조정 */
+}
+.pay_btn input{
+	margin: 10px 20px;
+    font-size: 16px;
+    width: 120px;
+    height: 40px;
+    border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.payment-btn {
+    margin-top: 20px; /* 결제 버튼의 위쪽 간격 조정 */
+}
+
+
+
+
+
+/* 주문완료화면 */
+.order-completed {
+	margin-top : 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
+}
+.order-completed h2{
+	font-size: 30px;
+	font-weight: bold;
+	margin: 80px 0 50px 0;
+}
+.check_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.check_img img {
+    width: 130px;
+    height: auto;
+}
+
+.text-area{
+	margin: 15px;
+}
+
+.customer-name,
+.completed-text,
+.customer-name span {
+    font-size: 20px;
+    text-align: center;
+}
+
+.order-com-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-com-btn button:first-child {
+    margin: 10px 20px;
+    font-size: 16px;
+    width: 120px;
+    height: 40px;
+    border: 1px solid #FF6244;
+	background-color: white;
+	color: #FF6244;
+    cursor: pointer;
+}
+.order-com-btn button {
+    margin: 10px 20px;
+    font-size: 16px;
+    width: 120px;
+    height: 40px;
+    border: 1px solid #FF6244;
+	background-color: #FF6244;
+	color: white;
+    cursor: pointer;
+}

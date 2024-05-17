@@ -8,7 +8,7 @@
 	<insert id="insert" parameterType="member">
 		insert into member4 values(
 			#{id},#{password},#{name},#{address},
-			#{tel},#{email},sysdate,'n')
+			#{tel},#{email},sysdate,'n','n')
 	</insert>
 	<update id="update" parameterType="member">
 		update member4 set password=#{password},
@@ -27,4 +27,16 @@
 	<select id="findPw" parameterType="string" resultType="member">
 	 	select * from member4 where id=#{id} and name=#{name}
 	</select>
+		<!-- 회원/관리자 권한 -->
+	<select id="isAdmin" parameterType="string" resultType="member">
+		select * from member4 where id = #{id}
+	</select>
+	<select id="checkAdmin" resultType="boolean">
+		select * form member4 where id = #{id} and is_admin = 'y'
+	</select>
+	<select id="list" parameterType="map" resultType="member">
+		select * from (select rowNum rn, a.* from (
+			select * from member4 order by id )a) 
+				where rn between #{startRow} and #{endRow} 
+	</select>	
 </mapper>

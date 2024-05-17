@@ -11,6 +11,7 @@ public class Member {
 	private String email;
 	private Date reg_date;
 	private String del;
+	private String is_admin;
 	
 	public String getId() {	return id;}
 	public void setId(String id) {	this.id = id;	}
@@ -28,5 +29,6 @@ public class Member {
 	public void setReg_date(Date reg_date) {	this.reg_date = reg_date;	}
 	public String getDel() {	return del;	}
 	public void setDel(String del) {	this.del = del;	}
-	
+	public String getIs_admin() {return is_admin; }
+	public void setIs_admin(String is_admin) { this.is_admin = is_admin; }
 }

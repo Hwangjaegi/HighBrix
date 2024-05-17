@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'SUITE-Regular';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2')
+		format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* 기본 스타일 설정 */
+body {
+	background-color: #FDF9E7;
+	font-family: 'SUITE-Regular', sans-serif;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+body>div {
+	font-family: 'SUITE-Regular', sans-serif;
+}
+
+.sub-middle-layout {
+    margin-top: 130px;
+    margin-bottom: 130px;
+}
+
+
+
+
+.container {
+	border-radius: 5px;
+	width: 100%;
+	text-align: center;
+}
+
+.hi {
+	font-size: 30px;
+	font-weight: bold;
+	margin-right: 50px;
+	margin-bottom: 80px;
+}
+
+.item {
+	display: flex;
+	align-items: center;
+	border-bottom: 2px solid #FF6244; 
+	padding: 3px;
+}
+
+.item>div {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.cart_li {
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.pay {
+	margin-right: 50px;
+	margin-bottom: 30px;
+}
+
+#bt_show {
+	font-family: 'SUITE-Regular', sans-serif;
+	border: 1px solid #FF6244;
+	background-color: white;
+	font-size: 16px;
+	color: #FF6244;
+	padding: 15px 30px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+#bt_buy {
+	font-family: 'SUITE-Regular', sans-serif;
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	font-size: 16px;
+	color: white;
+	padding: 15px 30px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.btn {
+	border: 1px solid #FF6244;
+	background-color: #FF6244;
+	font-size: 16px;
+	color: white;
+	padding: 15px 30px;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+.cart_item {
+	display: flex; /* Flexbox를 사용하여 아이템을 한 줄로 배치 */
+	align-items: center; /* 수직 정렬을 중앙으로 설정 */
+	border-bottom: 1px solid #ddd; /* 각 상품 사이에 구분선 추가 */
+	padding: 3px; /* 각 상품의 패딩 추가 */
+}
+
+.cart_item img {
+	width: 50px; /* 상품 이미지 크기 조정 */
+	margin-right: 10px; /* 이미지와 텍스트 사이의 간격 추가 */
+}
+
+.item > .num1 {
+	width: 13%;
+}
+
+.item > .img1 {
+	width: 10%;
+}
+
+.item > .name1 {
+	width: 25%;
+}
+
+.item > .count1 {
+	width: 3%;
+}
+
+.item > .discount1 {
+	width: 18%;
+}
+
+.item > .price1 {
+	width: 7%;
+}
+
+.item > .total_price1 {
+	width: 17%;
+}
+
+.item > .del1 {
+	width: 10%;
+}
+
+.cart_item > .num {
+	width: 13%;
+}
+
+.cart_item > .img {
+	width: 10%;
+	margin-left: 16px;
+}
+
+.cart_item > .name {
+	width: 25%;
+}
+
+.cart_item > .count {
+	width: 3%;
+}
+
+.cart_item > .discount {
+	width: 18%;
+}
+
+.cart_item > .price {
+	width: 7%;
+}
+
+.cart_item > .total_price {
+	width: 17%;
+}
+
+.cart_item > .delete_button {
+	width: 10%;
+}
+
+#btn_sel, #btn_del {
+	border: none;
+	color: white; 
+	font-family: 'SUITE-Regular', sans-serif;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px; 
+	padding: 10px 25px;
+	cursor: pointer;
+	border-radius: 2px;
+}

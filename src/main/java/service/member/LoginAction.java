@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemberDao;
+import Dao.MemberDao;
 import model.Member;
 import service.CommandProcess;
 
@@ -23,7 +23,12 @@ public class LoginAction implements CommandProcess {
 			result = 1; // 로그인 성공
 		}
 		request.setAttribute("result", result);
-		return "login";
+		boolean isAdmin = md.isAdmin(id, password);
+        if (isAdmin) {
+            return "/views/admin/adminMain";
+        } else {
+//            return "redirect:member/login.yj";
+        	return "login";
+        }
 	}
-
 }

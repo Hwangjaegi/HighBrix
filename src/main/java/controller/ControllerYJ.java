@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
@@ -45,8 +45,9 @@ public class ControllerYJ extends HttpServlet {
 	     while( keyIter.hasNext() ) {
 	          String command = (String)keyIter.next(); 
 	          // command : message.do
+	          //  System.out.println("init command = "+command);
 	          String className = pr.getProperty(command); 
-	          // className : ch13.service.Message문자
+	          // className : service.Message문자
 	          try {
 	               Class<?> commandClass = Class.forName(className);
 	               // commandClass : service.Message 클래스
@@ -74,19 +75,23 @@ public class ControllerYJ extends HttpServlet {
 	    	  // request.getContextPath().length()+1 : 6
 		      command = command.substring(
 		    		 request.getContextPath().length()+1); 
+		      System.out.println("command = "+command);
 		      // command : message.do
-		      System.out.println("command="+command);
-	          com = (CommandProcess)commandMap.get(command); 
+	          com = (CommandProcess)commandMap.get(command);
+	          System.out.println("com = "+com);
 	          // com : service.Message객체를 CommandProcess로 형변환
 	          // 자식 즉 Message객체의 requestPro()메소드 실행
-	          System.out.println("comm="+com);
 	          view = com.requestPro(request, response);
 	          // view는 "message.jsp" 문자
+	          if(!view.endsWith(".jsp")) {
+	        	  view += ".jsp";
+	          }
+	          System.out.println("view = "+view);
 	    } catch(Throwable e) { throw new ServletException(e); } 
 //	 view는 pgm article에 보여줄 프로그램
 	    RequestDispatcher dispatcher =
-	      	request.getRequestDispatcher(view+".jsp");
-	   dispatcher.forward(request, response);
+	      	request.getRequestDispatcher(view);
+	    dispatcher.forward(request, response);
 	}
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {

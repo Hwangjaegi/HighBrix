@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="buylistns">
+	<insert id="insert" parameterType="buyList">
+		insert into buy_list (bl_no, bl_count, bl_price,
+		 id, cm_no) 
+		values(bl_no_seq.nextval, #{bl_count}, #{bl_price}, 
+		#{id}, #{cm_no})
+	</insert>
+
+	<insert id="insertBuyList_db" parameterType="buyList">
+		insert into buy_list values(#{bl_no}, #{db_no}, #{bl_count})
+	</insert>
+	<insert id="insertBuyList_pb" parameterType="buyList">
+		insert into buy_list values(#{bl_no}, #{pb_no}, #{bl_count})
+	</insert>
+	
+	<select id="selectBlcount" parameterType="buyList" resultType="integer">
+		select bl_count from buy_list where bl_no=#{bl_no}
+	</select>
+	
+	<select id="selectBuyAll" resultType="buyList">
+        select b.*,c.cm_image, c.cm_name from buy_list b, cm_product c where id=#{id} and b.cm_no=c.cm_no
+    	order by b.bl_no desc
+    </select>
+<!-- 	<select resultType="cm_product" id="selectBuyAll_cmpb">
+		select cm_name, bl_count from cm_product cm, buy_list bl, pickup_buy pb
+         where cm.cm_no = bl.cm_no and  bl.id = pb.id
+	</select> -->
+</mapper>

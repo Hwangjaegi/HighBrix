@@ -1,0 +1,16 @@
+@charset "UTF-8";
+.footer{	/* 푸터css */
+	margin-top:0px;
+	overflow: auto;
+}
+/* 메인푸터가 올라와서 푸터를 하나더생성하여 억지로 내리는 css */
+.mainfooter{
+	margin-top:2800px;
+	overflow: auto;
+}
+.footerText{	/* 푸터 text css */
+	text-align: center;
+	font-family: sans-serif;
+	background-color: #FDF9E7;
+
+}

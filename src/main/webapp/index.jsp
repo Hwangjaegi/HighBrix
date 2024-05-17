@@ -7,8 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	location.href="dpMain.do";
-</script>
+	<script type="text/javascript">
+		location.href="/highbrix/views/display/dpMain.do";
+	</script>
 </body>
-</html>
+</html>  
+ 

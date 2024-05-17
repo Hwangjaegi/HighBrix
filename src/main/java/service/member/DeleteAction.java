@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemberDao;
+import Dao.MemberDao;
 import service.CommandProcess;
 
 public class DeleteAction implements CommandProcess {

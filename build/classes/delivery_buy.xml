@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="db_buyns">
+
+	<insert id="insert_db_buy" parameterType="delivery_buy">
+	    insert into delivery_buy (db_no, db_date, db_address, db_tel, db_name, db_request, cm_no, id, cm_image,cm_name,cm_price,bl_count)
+	    values (db_no_seq.nextval, sysdate, #{db_address}, #{db_tel}, #{db_name}, #{db_request},#{cm_no}, #{id}, #{cm_image}, #{cm_name}, #{cm_price}, #{bl_count} )
+	</insert>
+
+
+	<select id="selectdb_no" parameterType="delivery_buy" resultType="integer">
+		select max(db_no) from delivery_buy
+	</select>
+	
+	<!-- <select id="select" parameterType="string" resultType="delivery_buy">
+		select * from delivery_buy where id=#{id}
+	</select>
+	<insert id="insert_db_buy" parameterType="db_buy">
+		insert into delivery_buy values(
+			#{id},#{password},#{name},#{address},
+			#{tel},#{email},sysdate,'n','n')
+	</insert> -->
+	<update id="update" parameterType="delivery_buy">
+		update delivery_buy set password=#{password},
+			name=#{name},address=#{address},
+			tel=#{tel},email=#{email} where id=#{id}
+	</update>
+	<update id="delete" parameterType="delivery_buy">
+		update delivery_buy set del='y' where id=#{id}
+	</update>
+	<select id="getTotal" resultType="integer">
+		select count(*) from delivery_buy
+	</select>
+	<select id="b_list" parameterType="map" resultType="delivery_buy">
+		select * from (select rowNum rn, a.* from (
+			select * from delivery_buy order by db_no)a) 
+				where rn between #{startRow} and #{endRow} 
+	</select>	
+</mapper>

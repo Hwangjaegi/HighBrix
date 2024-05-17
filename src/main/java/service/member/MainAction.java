@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.MemberDao;
+import Dao.MemberDao;
 import model.Member;
 import service.CommandProcess;
 
@@ -19,7 +19,7 @@ public class MainAction implements CommandProcess {
 			Member member = md.select(id);
 			request.setAttribute("member", member);
 		}
-		return "main";
+		return "dpMain";
 	}
 
 }

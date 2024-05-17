@@ -1,0 +1,254 @@
+@charset "UTF-8";
+body{	/* 전체 웹사이트 마진,패딩값 초기화 */
+	margin:	0px;
+	padding: 0px;
+	box-sizing:border-box;
+	background-color: #FDF9E7;
+}
+#pritest{	/* 할인상품 할인전 가격 테스트 css */
+	text-decoration: line-through;
+	font-size: 18px;
+	color:#8C8C8C;
+}
+.header{	/* 판매페이지 가로 세로 크기 지정 [어느 사이트에서 1920으로 해서 했습니다 수정가능] */
+	/* 전체웹에 최대 가로길이를 주고 margin: 0 auto하게되면 중앙배치됨 */
+	padding:0px;
+	max-width:1920px;
+	height: 420px;
+	margin:0 auto;
+}
+
+.top{	/* header -> 로그인 div css*/
+	margin-top:20px;
+	width: 100%;
+	height: 80px;
+	float: left;
+}
+.logo-login {	/* header -> 로고,로그인 css */
+    justify-content: space-between;
+    align-items: center;
+    float:left;
+}
+.logo{	/* header -> 로고 css */
+	position:relative;
+	left:800px;
+	width:350px;
+	height:300px;
+	float:left; 
+}
+.logo:hover{	/* header -> 로고 css */
+	cursor:pointer;
+}
+.login{	/* header -> 로그인버튼 css */
+	width:300px;
+	position: relative;
+	top: 0px;
+	float:right;
+	left:1300px;	/* 위치지정 */
+	
+}
+.login a{	/* header -> 로그인버튼 css */
+	text-decoration: none;
+	color : #FDF9E7; 
+	font-size: 20px;
+	font-weight : bold;
+	padding : 5px 10px;
+	font: bold;
+	border: 1px solid #FC0C08;
+	border-radius : 5px;
+	margin:8px;
+	background: #FC0C08;
+	
+}
+.logo-login>.login a:hover{ /* header -> 로그인버튼 css */
+	cursor: pointer;
+	color: rgb(255, 128, 192);
+}
+
+    .searchText {
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+      outline: none;
+      height:500px;
+    }
+
+    .searchBtn {
+
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+    }
+
+    /* 검색창 포커스 시 스타일 변경 */
+    .searchText:focus {
+      border-color: #4caf50;
+    }
+
+    .searchBtn:hover {
+      background-color: #45a049;
+    }
+
+.search{	/* header -> 검색창 css */
+	position: relative;
+	top:260px;
+	left:1655px; 
+	height:0px;
+	background-color: red;
+}
+.search input{	/* header -> 검색창 버튼 css */
+	height: 40px;
+}
+.menu{	/* header -> nav바 css  */
+	margin:0 auto;
+	margin-top:360px;
+	margin-left:480px;
+    justify-content: center;	/* 중앙정렬 */
+    width: 100%; /* 이 값을 조정하여 메뉴 항목 간의 거리를 조절할 수 있습니다. */
+}
+
+.icon{	/* header -> 카테고리 버튼 css 시작*/
+	float: left;
+	margin-top: 20px;
+}
+
+
+.menu_list ul{	
+	display:table;
+	list-style: none;
+	
+}
+.menu_list ul li{	
+	margin-left:20px;
+	padding:10px;
+	float:left;
+	font-size: 30px;
+}
+
+.menu_list ul li a{	
+	 display: inline-block;
+     color: #fff; /* 글자색 */
+     font-family: "Hahmlet", serif;
+  	 font-weight:bold;
+  	 font-style: normal;
+  	 margin: 0px 10px;
+  	 font-size:40px;
+}
+
+.menu_list ul li a:hover{	
+	cursor: pointer;
+	color:#FAE0D4;
+}
+
+#menuicon{	
+	display: none;
+	position: fixed;
+}
+#menuicon+label{	
+	margin-top:3px;
+	display:block;
+	width:40px;
+	height:30px;
+	position:relative;
+	cursor:pointer;
+	z-index: 2;
+
+}
+#menuicon+label span{	
+	display:block;
+	position:absolute;
+	width:100%;
+	height:5px;
+	border-radius:30px;
+	background:#000;
+	transition:all .35s;
+}
+#menuicon+label span:nth-child(1) {	/* header -> 카테고리 css */
+	top:0px;
+}
+#menuicon+label span:nth-child(2) {	/* header -> 카테고리 css */
+	top:50%;
+	transform:translateY(-50%);
+}
+#menuicon+label span:nth-child(3) {	/* header -> 카테고리 css */
+	bottom:0px;
+}
+#menuicon:checked+ label span:nth-child(1){
+	top:50%;
+	transform:translateY(-50%) rotate(45deg);
+}
+#menuicon:checked+ label span:nth-child(2){
+	opacity:0;
+}
+#menuicon:checked+ label span:nth-child(3){
+	bottom:50%;
+	transform:translateY(50%) rotate(-45deg);
+}/* header -> 카테고리버튼 css 종료*/
+
+.sidebar{ /* header -> 카테고리 클릭 시 사이드바 css 시작*/
+	/* opacity : 투명도설정 */
+	opacity:0; 
+	width:150px;
+	height:300px;
+	background:white;
+	position:absolute;
+	top:430px;
+	z-index:1;
+	transition:all .35s;
+	
+}
+
+.sidebar ol{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	
+}
+.sidebar ol>li{
+	padding-top:20px;
+	font-family:sans-serif;
+	font-weight: bold;
+	font-size:20px;
+}
+
+.sidebar ol>li>a{
+	text-decoration: none;
+	color: black;
+}
+
+.sidebar ol>li>a:hover{
+	color: green;
+	cursor: pointer;
+}
+input[id="menuicon"]:checked + label + div{
+	opacity:100;
+	/* 그림자설정 */
+		box-shadow: 10px 0 10px rgba(0, 0, 0, 0.7); /* 좌측으로 그림자 효과 */
+} /* header -> 카테고리 클릭 시 사이드바 css 종료*/
+
+
+.menu ul{	/* header -> nav바 버튼 css 시작*/
+	display:table;
+	list-style: none;
+}
+.menu ul li{
+	margin-left:20px;
+	padding:10px;
+	float:left;
+	font-size: 30px;
+}
+
+.menu ul li a{
+	text-decoration: none;
+	color: black;
+}
+
+.menu ul li a:hover{
+	cursor: pointer;
+}/* header -> nav바 버튼 css 종료*/
+
+/* header css close */

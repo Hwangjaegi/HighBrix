@@ -7,7 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Dao.BorderDao;
-import model.Acount;
+import model.Account;
+import model.Account;
 import service.CommandProcess;
 
 public class Customer implements CommandProcess {
@@ -53,8 +54,7 @@ public class Customer implements CommandProcess {
 		//총 페이지보다 endpage가 클수는 없어서 아래와같이 로직작성
 		if(endPage > totalPage) endPage = totalPage;
 		//Board클래스를 통해 startRow = 1 , endpage = 10 범위내의 데이터만 읽어와
-		List<Acount> list = bd.list(startRow,endRow); 
-		System.out.println("리스트값 : " + list);
+		List<Account> list = bd.list(startRow,endRow); 
 
 		request.setAttribute("list", list);
 		request.setAttribute("num", num);

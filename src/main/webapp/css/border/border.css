@@ -1,213 +1,41 @@
 @charset "UTF-8";
 /* 헤더 css 시작 */
-body{
-	margin:	0px;
-	padding: 0px;
-	box-sizing:border-box;
+/* @font-face {
+	font-family: 'S-CoreDream-3Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
+
+
+* {
+	background-color: #FDF9E7;
+	margin: 0px;
+	font-family: 'S-CoreDream-3Light';
+} */
 .wrap{
 	/* 전체웹에 최대 가로길이를 주고 margin: 0 auto하게되면 중앙배치됨 */
-	max-width:1920px;
-	height: 5000px;
-	margin:0 auto;
-	background: gray;
-}
-.top{
-	margin-top:20px;
-	width: 100%;
-	height: 80px;
-	float: left;
-}
-.logo-login {
-    justify-content: space-between;
+	max-width:100%;
+	height:1000px;
+	display:flex;
+    justify-content: center;
     align-items: center;
-    float:left;
+	position : relative; /* 위치를 설정하기 위해 절대 위치 지정 */
+	left: 50%; /* 왼쪽에서 50% 지점을 기준으로 정렬 */
+	transform: translateX(-50%);
 }
-.logo{
-	position:relative;
-	left:800px;
-	width:350px;
-	height:300px;
-	float:left; 
-}
-.logo:hover{
-	cursor:pointer;
-}
-.login{
-	width:200px;
-	position: relative;
-	top: 0px;
-	float:right;
-	left:1375px;
-	
-}
-.login a{
-	text-decoration: none;
-	color : black; 
-	font-size: 25px;
-	font: bold;
-	
-}
-.logo-login>.login a:hover{
-	cursor: pointer;
-	color: red;
-}
-.search{
-	position: relative;
-	top:0px;
-	left:1690px; 
-	width:300px;
-	height:0px;
-	background-color: red;
-}
-.search input{
-	height: 40px;
-}
-.menu{
-	margin:0 auto;
-	margin-top:400px;
-	display: flex;
-    justify-content: center;	/* 중앙정렬 */
-    width: 100%; /* 이 값을 조정하여 메뉴 항목 간의 거리를 조절할 수 있습니다. */
-    position: sticky;
-}
-
-/* 카테고리 버튼구현 */
-.icon{
-	float: left;
-	margin-top: 35px;
-}
-
-.menu ul{
-	display:table;
-	list-style: none;
-}
-.menu ul li{
-	margin-left:20px;
-	padding:10px;
-	float:left;
-	font-size: 30px;
-	font-family: sans-serif;
-}
-
-.menu ul li a{
-	text-decoration: none;
-	color: black;
-}
-
-.menu ul li a:hover{
-	color: green;
-	cursor: pointer;
-}
-
-#menuicon{
-	display: none;
-	position: fixed;
-}
-#menuicon+label{
-	display:block;
-	width:40px;
-	height:25px;
-	position:relative;
-	cursor:pointer;
-	z-index: 2;
-}
-#menuicon+label span{
-	display:block;
-	position:absolute;
-	width:100%;
-	height:5px;
-	border-radius:30px;
-	background:#000;
-	transition:all .35s;
-}
-#menuicon+label span:nth-child(1) {
-	top:0px;
-}
-#menuicon+label span:nth-child(2) {
-	top:50%;
-	transform:translateY(-50%);
-}
-#menuicon+label span:nth-child(3) {
-	bottom:0px;
-}
-#menuicon:checked+ label span:nth-child(1){
-	top:50%;
-	transform:translateY(-50%) rotate(45deg);
-}
-#menuicon:checked+ label span:nth-child(2){
-	opacity:0;
-}
-#menuicon:checked+ label span:nth-child(3){
-	bottom:50%;
-	transform:translateY(50%) rotate(-45deg);
-}
-.sidebar{
-	/* opacity : 투명도설정 */
-	opacity:0; 
-	width:150px;
-	height:300px;
-	background:white;
-	position:fixed;
-	top:500px;
-	left:1100px;
-	z-index:1;
-	transition:all .35s;
-}
-
-.sidebar ol{
-	margin:0px;
-	padding:0px;
-	list-style:none;
-	
-}
-.sidebar ol>li{
-	padding-top:10px;
-	margin-right: 0px;
-	font-family: 돋움;
-	font-weight: bold;
-}
-
-.sidebar ol>li>a{
-	text-decoration: none;
-	color: black;
-}
-
-.sidebar ol>li>a:hover{
-	color: green;
-	cursor: pointer;
-}
-
-input[id="menuicon"]:checked + label + div{
-	opacity:100;
-	/* 그림자설정 */
-	box-shadow: 2px 2px 2px 2px gray;
-}
-/* 헤더 css 종료 */
-
 /* 게시판 css 시작 */
-
-.cu_menu{
-	width:200px;
-	height:300px;
-	background: yellow;
-	float: left;
-}
-.cu_menu>ul{
-	margin: 0px;
-	padding: 0px;
-}
 .cu_line{
 	height:3px;
 	background: black;
 	
 }
 .cu_menu>ul li{
-	background:blue;
 	list-style: none;
 	cursor: pointer;
 	font-size: 22px;
-	font-family: sans-serif;
 	font-weight: bold;
 	margin-left:0px;
 	margin-top: 20px;
@@ -216,50 +44,199 @@ input[id="menuicon"]:checked + label + div{
 .notice>a{
 	margin-left: 10px;
 }
-.cu_border{
+.passChkmain{
+	margin-top: 100px;
+	width: 100%;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 요소들을 세로로 정렬하기 위해 column으로 설정 */
+}
+.cu_border{ /* 중앙 메인화면 css 시작 */
 	position:relative;
 	margin:0 auto;
-	width:1500px;
-	height:1500px;
-	background:green;
-	margin-top: 100px;
+	width:100%;
+	height:800px;
 }
-.cu_border>span{
-	float: right;
+.cu_tableFull{ /* 공지사항 테이블 + 버튼 전체 묶음 css 시작 */
+	position: relative;
+} /* 공지사항 테이블 + 버튼 전체 묶음 css 종료 */
+
+.cu_table{	/* 테이블 묶음 css 시작 */
+	width:1000px;
+	border:1px solid #ddd;
+	border-collapse:collapse;
+	margin: 0 auto;
+	/* 테이블 중앙배치 위해 묶어줌 */
+}
+
+.t_head th{
 	font-size: 25px;
-	font-family: sans-serif;
 	font-weight: bold;
+	text-align:center;
+	height:30px;
+	padding:10px;
+	border:1px solid #FF6244;
+	background-color:  #FF6244;
+	color: white;
+}
+.t_body:hover {
+      background-color: #f1f1f1;
+}
+
+.t_body>td{
+	font-size: 20px;
+	font-weight: bold;
+	height:30px;
+	padding:10px; 
+	border:1px solid #ddd;
+} 
+.t_body>td>a{
+	font-size: 20px;
+	font-weight: bold;
+	height:30px;
+	padding:10px; 
+} 
+.a_passChk{
+	width:50px;
+	text-align: center;
+}
+
+/* 게시판 content css */
+#a_img{
+	width:200px;
+	margin-left: 10px; 
+}
+
+#a_content{
+	margin-top:60px;
+	text-align: left;
+}
+
+#a_hr{
+	position: relative;
+	top:270px;
+}
+.titleChk{
+	font-size:20px;
+	text-decoration: none;
+	color: black;
+}
+
+/* 테이블 묶음 css 종료 */
+
+.cu_BtnBox{ /* 테이블 변경 버튼 css 시작 */
 	margin-top: 20px;
-	margin-right:20px;
 }
-.cu_border h1{
-	position: relative;
-	left:100px;
-	top:100px;
-}
-.cu_tableFull{
-	position: relative;
-	top: 100px;
-}
-.cu_table{
-	width:1300px;
-	border:1px solid black;
+
+#cu_Btn{
+	cursor: pointer;
+	margin: 10px;
+	width:100px;
+	height:50px; 
+	font-size: 20px;
+} /* 테이블 변경 버튼 css 종료 */
+
+
+.cu_writeBtn{ /* Q&A 글쓰기 버튼 css 시작 */
+	cursor: pointer;
+	margin:5px;
+	width:70px;
+	height:40px;
+} /* Q&A 글쓰기 버튼 css 종료 */
+
+.cu_WhiteTable{
 	margin: 0 auto;
 }
-.cu_table>table{
-	width:1300px;
+#t_title{
+	margin-left: 10px;
+	width: 500px;
+	height:35px;
+	border: none;
+	outline:none;
+	font-size: 30px;
+	background: #FDF9E7;
 }
-.t_head th{
-	font-size: 20px;
-	font-family: sans-serif;
+#t_name{
+	margin-left: 10px;
+	width:200px;
+}
+#t_password{
+	margin-left: 10px;
+	width:250px;
+	height:35px;
+	border: none;
+	outline:none;
+	background: #FDF9E7;
+	font-size: 30px;
+}
+#t_file{
+	margin-left: 10px;
+	cursor: pointer;
+	background: #FDF9E7;
+	font-size:30px;
+}
+#t_content{
+	margin-left: 10px;
+	border: none;
+	outline:none;
+	background: #FDF9E7;
+	font-size: 30px;
+}
+
+.t_button{
+	margin: 0 auto;
+	height:50px;
+	position: relative;
+	top: 30px;
+	left: 30px;
+	
+}
+
+.t_button button{
+	width:100px;
+	cursor: pointer;
 	font-weight: bold;
-	height:50px;
-	padding:20px;
+	margin: 10px;
+	height:50px; 
+	font-size: 20px;
 }
-.t_main td{
-	font-size: 15px;
-	font-family: sans-serif;
-	height:50px;
+
+.t_button input{
+	width:150px;
+	cursor: pointer;
+	font-weight: bold;
+	margin: 10px;
+	height:70px; 
+	font-size: 30px;
+}
+
+.detail{
+	font-size: 30px;
 	text-align: center;
-	 
+	width: 100px;
 }
+.pdTitle{
+	text-align: center;
+	font-size:25px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+.pageBtn{
+	width: 30px;
+    font-size: 15px;
+    margin: 15px;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #FF6244;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: white;
+    color: #FF6244;
+}
+
+
